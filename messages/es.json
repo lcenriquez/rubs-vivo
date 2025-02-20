@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "contact": "Contacto"
+  },
+  "common": {
+    "language": "Idioma",
+    "switchToSpanish": "Cambiar a Español",
+    "switchToEnglish": "Cambiar a Inglés"
+  },
+  "home": {
+    "title": "Bienvenido a la RUBS",
+    "description": "Un proyecto boilerplate con Next.js, Firebase, Shadcn/ui y Tailwind"
+  }
+} 

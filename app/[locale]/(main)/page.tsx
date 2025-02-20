@@ -1,3 +1,4 @@
+import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -9,15 +10,17 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
+import { getTranslations } from 'next-intl/server';
 
-export default function Home() {
+
+export default async function Home() {
+  const t = await getTranslations('home');
   return (
     <>
       <div className="grow flex flex-col items-center justify-evenly">
         <section className="space-y-6">
           <div className="container flex flex-col items-center gap-8 text-center">
-            <Badge variant="secondary">Now using the app router!</Badge>
+            <Badge variant="secondary">{t('title')}</Badge>
             <Badge className="space-x-4 font-normal text-sm">
               <p>
                 <span className="font-bold">Ve</span>rcel
