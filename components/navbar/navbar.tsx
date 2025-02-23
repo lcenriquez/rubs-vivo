@@ -1,11 +1,14 @@
 import { NavbarMobile } from "@/components/navbar/navbar-mobile";
 import { NavbarUserLinks } from "@/components/navbar/navbar-user-links";
 import { buttonVariants } from "@/components/ui/button";
-import { FishIcon, ScanTextIcon } from "lucide-react";
+import { DropletIcon } from "lucide-react";
 import Link from "next/link";
 import { FC } from "react";
+import { useTranslations } from 'next-intl';
 
 export const NavBar: FC = () => {
+  const t = useTranslations('nav');
+
   return (
     <>
       <div className="animate-in fade-in w-full">
@@ -13,22 +16,16 @@ export const NavBar: FC = () => {
           <div className="flex items-center">
             <Link href="/" className="hover:opacity-80 transition-opacity">
               <div className="flex items-center">
-                <FishIcon className="w-8 h-8 mr-2 inline" />{" "}
+                <DropletIcon className="w-8 h-8 mr-2 inline" />{" "}
                 <span className="text-xl font-semibold tracking-tighter text-slate-800 mr-6">
-                  Venefish
+                  RUBS
                 </span>
               </div>
             </Link>
             <div className="hidden md:flex justify-between grow">
               <div>
-                <Link href="#1" className={buttonVariants({ variant: "link" })}>
-                  Item 1
-                </Link>
-                <Link href="#2" className={buttonVariants({ variant: "link" })}>
-                  Item 2
-                </Link>
-                <Link href="#3" className={buttonVariants({ variant: "link" })}>
-                  Item 3
+                <Link href="/map" className={buttonVariants({ variant: "link" })}>
+                  {t('map')}
                 </Link>
               </div>
               <div className="flex items-center space-x-4">

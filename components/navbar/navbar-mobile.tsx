@@ -11,8 +11,12 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { MenuIcon } from "lucide-react";
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 export const NavbarMobile = () => {
+  const t = useTranslations('nav');
+
   return (
     <>
       <NavigationMenu>
@@ -22,24 +26,9 @@ export const NavbarMobile = () => {
               <MenuIcon />
             </NavigationMenuTrigger>
             <NavigationMenuContent className="flex flex-col p-1">
-              <NavigationMenuLink
-                href="#1"
-                className={buttonVariants({ variant: "link" })}
-              >
-                Item 1
-              </NavigationMenuLink>
-              <NavigationMenuLink
-                href="#2"
-                className={buttonVariants({ variant: "link" })}
-              >
-                Item 2
-              </NavigationMenuLink>
-              <NavigationMenuLink
-                href="#3"
-                className={buttonVariants({ variant: "link" })}
-              >
-                Item 3
-              </NavigationMenuLink>
+              <Link href="/map" className={buttonVariants({ variant: "link" })}>
+                {t('map')}
+              </Link>
               <div className="flex flex-col mb-0.5">
                 <NavbarUserLinks />
               </div>

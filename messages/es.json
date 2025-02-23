@@ -4,13 +4,211 @@
     "about": "Acerca",
     "contact": "Contacto"
   },
+  "nav": {
+    "map": "Mapa",
+    "dashboard": "Dashboard"
+  },
   "common": {
     "language": "Idioma",
     "switchToSpanish": "Cambiar a Español",
-    "switchToEnglish": "Cambiar a Inglés"
+    "switchToEnglish": "Cambiar a Inglés",
+    "signUpNow": "¡Regístrate ahora!"
   },
   "home": {
-    "title": "Bienvenido a la RUBS",
-    "description": "Un proyecto boilerplate con Next.js, Firebase, Shadcn/ui y Tailwind"
+    "hero": {
+      "title": "Somos la Red de Usuarios del Baño Seco Vivo",
+      "description": "Difundimos el respeto al agua, la tierra y a la vida, cerrando los ciclos naturales",
+      "platformDescription": "Esta plataforma es una herramienta para compartir cómo son nuestros sanitarios ecológicos y dónde están ubicados, además de ser un medio para compartir experiencias.",
+      "searchPlaceholder": "Ingresa tu ciudad...",
+      "search": "Buscar",
+      "loading": "Cargando..."
+    },
+    "sections": {
+      "whatIs": {
+        "title": "¿Qué son los baños secos?",
+        "content": "Los baños secos son sistemas de saneamiento que no utilizan agua para tratar los desechos humanos. Se basan en métodos naturales de compostaje y descomposición."
+      },
+      "howWorks": {
+        "title": "Funcionamiento de los baños secos",
+        "content": "Los desechos sólidos y líquidos se separan en dos contenedores diferentes. Los sólidos se cubren con materiales secos para promover el compostaje."
+      },
+      "benefits": {
+        "title": "Beneficios de los baños secos",
+        "list": [
+          "Conservación del agua",
+          "Reducción de la contaminación",
+          "Compostaje de desechos",
+          "Facilidad de instalación en zonas remotas"
+        ]
+      },
+      "maintenance": {
+        "title": "Mantenimiento de los baños secos",
+        "content": "Es importante seguir pautas específicas para la disposición segura y adecuada de los residuos."
+      },
+      "differences": {
+        "title": "Diferencias entre baños secos y baños tradicionales",
+        "content": "Los baños secos eliminan la necesidad de agua para transportar desechos, lo que implica ventajas ambientales."
+      },
+      "cta": {
+        "title": "Únete a nuestra comunidad",
+        "description": "Forma parte de la red y comparte tus experiencias con otros usuarios de baños secos."
+      }
+    }
+  },
+  "auth": {
+    "email": "Correo electrónico",
+    "separator": {
+      "text": "o continúa con"
+    },
+    "password": "Contraseña",
+    "signUp": {
+      "alreadyJoined": "¿Ya tienes una cuenta?",
+      "description": "Únete a nuestra comunidad de usuarios eco-conscientes",
+      "emailDescription": "Se requiere un correo electrónico válido para acceder a todas las funciones",
+      "errors": {
+        "userExists": "El usuario ya existe",
+        "default": "Error al registrarse"
+      },
+      "passwordDescription": "Debe tener al menos 8 caracteres",
+      "signInInstead": "Inicia sesión",
+      "success": "¡Cuenta creada!",
+      "title": "Registro"
+    },
+    "signIn": {
+      "createAccount": "Crear cuenta",
+      "description": "¡Bienvenid@ de nuevo!",
+      "errors": {
+        "default": "Ocurrió un error al iniciar sesión",
+        "invalidCredentials": "Correo electrónico o contraseña incorrectos"
+      },
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "noAccount": "¿No tienes una cuenta?",
+      "reset": "Recuperar contraseña",
+      "title": "Iniciar sesión"
+    },
+    "providers": {
+      "google": {
+        "title": "Google",
+        "signInSuccess": "¡Sesión iniciada!",
+        "error": "Error al iniciar sesión"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "tabs": {
+      "myPosts": "Mis Publicaciones"
+    },
+    "posts": {
+      "create": "Crear Publicación",
+      "edit": "Editar Publicación",
+      "empty": "Aún no has creado ninguna publicación",
+      "view": "Ver Publicación",
+      "delete": {
+        "title": "Eliminar Publicación",
+        "description": "¿Estás seguro de que deseas eliminar esta publicación? Esta acción no se puede deshacer.",
+        "confirm": "Eliminar",
+        "cancel": "Cancelar"
+      },
+      "status": {
+        "pending": "Pendiente",
+        "approved": "Aprobada",
+        "rejected": "Rechazada"
+      }
+    },
+    "form": {
+      "title": {
+        "label": "Título",
+        "placeholder": "Ingresa un título para tu publicación",
+        "error": "El título es requerido"
+      },
+      "type": {
+        "label": "Tipo",
+        "placeholder": "Selecciona un tipo",
+        "options": {
+          "dry": "Sanitario Seco",
+          "composting": "Sanitario Compostero"
+        },
+        "error": "El tipo es requerido"
+      },
+      "location": {
+        "label": "Ubicación",
+        "placeholder": "Selecciona la ubicación en el mapa",
+        "error": "La ubicación es requerida",
+        "searchPlaceholder": "Buscar una dirección",
+        "markerHint": "Arrastrame para establecer la ubicación",
+        "loading": "Cargando mapa...",
+        "couldNotLoadMap": "Error al cargar el mapa"
+      },
+      "description": {
+        "label": "Descripción",
+        "placeholder": "Describe tu instalación sanitaria",
+        "error": "La descripción es requerida"
+      },
+      "photos": {
+        "label": "Fotos",
+        "description": "Sube hasta 10 fotos",
+        "coverPhoto": "Foto de Portada",
+        "dropzone": "Arrastra las fotos aquí o haz clic para subirlas",
+        "error": {
+          "required": "Se requiere al menos una foto",
+          "tooMany": "Máximo 10 fotos permitidas",
+          "invalidType": "Solo se permiten archivos de imagen",
+          "tooLarge": "El archivo es demasiado grande",
+          "deletePhoto": "Error al eliminar la foto"
+        }
+      },
+      "save":"Guardar",
+      "submit": "Crear Publicación",
+      "cancel": "Cancelar"
+    }
+  },
+  "admin": {
+    "title": "Panel de Administración",
+    "loading": "Cargando publicaciones pendientes...",
+    "noPendingPosts": "No hay publicaciones pendientes para revisar",
+    "postedBy": "Publicado por",
+    "type": "Tipo",
+    "description": "Descripción",
+    "photos": "Fotos",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "rejectTitle": "Rechazar Publicación",
+    "rejectDescription": "Por favor, proporciona un motivo para rechazar esta publicación. Esto se mostrará al usuario.",
+    "rejectionPlaceholder": "Ingresa el motivo del rechazo...",
+    "cancel": "Cancelar",
+    "confirmReject": "Confirmar Rechazo",
+    "types": {
+      "dry": "Baño Seco",
+      "composting": "Baño Compostero"
+    },
+    "success": {
+      "approved": "Publicación aprobada exitosamente",
+      "rejected": "Publicación rechazada exitosamente"
+    },
+    "errors": {
+      "loadPosts": "Error al cargar las publicaciones pendientes",
+      "approve": "Error al aprobar la publicación",
+      "reject": "Error al rechazar la publicación"
+    }
+  },
+  "map": {
+    "nearbyPosts": "Baños Secos Cercanos",
+    "noPosts": "No se encontraron baños secos en esta área",
+    "viewDetails": "Ver Detalles",
+    "loading": "Cargando mapa...",
+    "filters": {
+      "title": "Filtros",
+      "radius": {
+        "label": "Radio de Búsqueda",
+        "20km": "20 km",
+        "50km": "50 km",
+        "100km": "100 km"
+      },
+      "location": {
+        "label": "Ubicación",
+        "placeholder": "Ingresa una ciudad o dirección"
+      }
+    }
   }
 } 

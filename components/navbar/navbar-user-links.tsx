@@ -1,14 +1,15 @@
 "use client";
 
 import { UserNav } from "@/components/navbar/user-nav";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { FC } from "react";
+import { useTranslations } from "next-intl";
 import { useUser } from "reactfire";
 import { ModeToggle } from "../ui/mode-toggle";
 
 export const NavbarUserLinks: FC = () => {
+  const t = useTranslations('auth');
   const { data, hasEmitted } = useUser();
 
   return (
@@ -23,8 +24,8 @@ export const NavbarUserLinks: FC = () => {
         </>
       ) : (
         <>
-          <Link href="/login" className={buttonVariants()}>
-            Login / Register &rarr;
+          <Link href="/signin" className={buttonVariants()}>
+            {t('signIn.title')} &rarr;
           </Link>
         </>
       )}

@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "reactfire";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { ModalForgotPassword } from "@/components/auth/modal-forgot-password";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -32,6 +33,7 @@ interface SignInFormProps {
 export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
   const auth = useAuth();
   const [isResetOpen, setIsResetOpen] = useState(false);
+  const t = useTranslations('auth');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,12 +49,11 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
     try {
       setIsLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      toast({
-        title: "Success!",
-        description: "You have been signed in.",
-      });
     } catch (error) {
-      toast({ title: "Error Signing In", description: `${error}` });
+      toast({ 
+        title: t('signIn.errors.default'),
+        description: t('signIn.errors.invalidCredentials')
+      });
     } finally {
       setIsLoading(false);
     }
@@ -67,7 +68,7 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel>{t('email')}</FormLabel>
                 <FormControl>
                   <Input type="email" {...field} />
                 </FormControl>
@@ -80,7 +81,7 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel>{t('password')}</FormLabel>
                 <FormControl>
                   <Input type="password" {...field} />
                 </FormControl>
@@ -89,20 +90,20 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
             )}
           />
           <Button type="submit" disabled={isLoading}>
-            Submit
+            {t('signIn.title')}
           </Button>
         </form>
       </Form>
       <p className="mt-4 text-sm">
-        Forgot password?{" "}
+        {t('signIn.forgotPassword')}{" "}
         <Button variant="link" onClick={() => setIsResetOpen(true)}>
-          Reset
+          {t('signIn.reset')}
         </Button>
       </p>
       <p className="text-sm">
-        Not a member?{" "}
+        {t('signIn.noAccount')}{" "}
         <Button variant="link" onClick={onShowSignUp}>
-          Sign up instead.
+          {t('signIn.createAccount')}
         </Button>
       </p>
       <ModalForgotPassword isOpen={isResetOpen} setIsOpen={setIsResetOpen} />

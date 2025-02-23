@@ -4,13 +4,211 @@
     "about": "About",
     "contact": "Contact"
   },
+  "nav": {
+    "map": "Map",
+    "dashboard": "Dashboard"
+  },
   "common": {
     "language": "Language",
     "switchToSpanish": "Switch to Spanish",
-    "switchToEnglish": "Switch to English"
+    "switchToEnglish": "Switch to English",
+    "signUpNow": "Sign up now!"
   },
   "home": {
-    "title": "Welcome to the RUBS",
-    "description": "A boilerplate project with Next.js, Firebase, Shadcn/ui and Tailwind"
+    "hero": {
+      "title": "We are the Network of Users of Composting Toilets",
+      "description": "We promote respect for water, land, and LIFE in general, closing natural cycles. Let's stop polluting and instead generate compost instead of black waters!",
+      "platformDescription": "This platform is a tool to share how our ecological toilets work and where they are located, as well as sharing experiences.",
+      "searchPlaceholder": "Enter your city...",
+      "search": "Search",
+      "loading": "Loading..."
+    },
+    "sections": {
+      "whatIs": {
+        "title": "What are dry toilets?",
+        "content": "Dry toilets are sanitation systems that do not use water to treat human waste. They rely on natural composting and decomposition methods."
+      },
+      "howWorks": {
+        "title": "How dry toilets work",
+        "content": "Solid and liquid waste is separated into two different containers. Solids are covered with dry materials to promote composting."
+      },
+      "benefits": {
+        "title": "Benefits of dry toilets",
+        "list": [
+          "Water conservation",
+          "Pollution reduction",
+          "Waste composting",
+          "Ease of installation in remote areas"
+        ]
+      },
+      "maintenance": {
+        "title": "Maintenance of dry toilets",
+        "content": "It is important to follow specific guidelines for the safe and proper disposal of waste."
+      },
+      "differences": {
+        "title": "Differences between dry toilets and traditional toilets",
+        "content": "Dry toilets eliminate the need for water to transport waste, which brings environmental advantages."
+      },
+      "cta": {
+        "title": "Join our community",
+        "description": "Become part of the network and share your experiences with other dry toilet users."
+      }
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "separator": {
+      "text": "or continue with"
+    },
+    "password": "Password",
+    "signUp": {
+      "alreadyJoined": "Already joined?",
+      "description": "Join our community of eco-conscious users",
+      "emailDescription": "A valid email is required to access all features",
+      "errors": {
+        "userExists": "User already exists",
+        "default": "Error signing up"
+      },
+      "passwordDescription": "Must be at least 8 characters long",
+      "signInInstead": "Sign in instead",
+      "success": "Account created!",
+      "title": "Sign Up"
+    },
+    "signIn": {
+      "createAccount": "Create account",
+      "description": "Welcome back!",
+      "errors": {
+        "default": "An error occurred during sign in",
+        "invalidCredentials": "Invalid email or password"
+      },
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "reset": "Reset",
+      "title": "Sign In"
+    },
+    "providers": {
+      "google": {
+        "title": "Google",
+        "signInSuccess": "Signed in!",
+        "error": "Error signing in"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "tabs": {
+      "myPosts": "My Posts"
+    },
+    "posts": {
+      "create": "Create Post",
+      "edit": "Edit Post",
+      "empty": "You haven't created any posts yet",
+      "view": "View Post",
+      "delete": {
+        "title": "Delete Post",
+        "description": "Are you sure you want to delete this post? This action cannot be undone.",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      },
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      }
+    },
+    "form": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Enter a title for your post",
+        "error": "Title is required"
+      },
+      "type": {
+        "label": "Type",
+        "placeholder": "Select a type",
+        "options": {
+          "dry": "Dry Toilet",
+          "composting": "Composting Toilet"
+        },
+        "error": "Type is required"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Select location on map",
+        "error": "Location is required",
+        "searchPlaceholder": "Search for an address",
+        "markerHint": "Drag me to set location",
+        "loading": "Loading map...",
+        "couldNotLoadMap": "Error loading map"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Describe your toilet installation",
+        "error": "Description is required"
+      },
+      "photos": {
+        "label": "Photos",
+        "description": "Upload up to 10 photos",
+        "coverPhoto": "Cover Photo",
+        "dropzone": "Drop photos here or click to upload",
+        "error": {
+          "required": "At least one photo is required",
+          "tooMany": "Maximum 10 photos allowed",
+          "invalidType": "Only image files are allowed",
+          "tooLarge": "File is too large",
+          "deletePhoto": "Failed to delete photo"
+        }
+      },
+      "save":"Save",
+      "submit": "Create Post",
+      "cancel": "Cancel"
+    }
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "loading": "Loading pending posts...",
+    "noPendingPosts": "No pending posts to review",
+    "postedBy": "Posted by",
+    "type": "Type",
+    "description": "Description",
+    "photos": "Photos",
+    "approve": "Approve",
+    "reject": "Reject",
+    "rejectTitle": "Reject Post",
+    "rejectDescription": "Please provide a reason for rejecting this post. This will be shown to the user.",
+    "rejectionPlaceholder": "Enter rejection reason...",
+    "cancel": "Cancel",
+    "confirmReject": "Confirm Rejection",
+    "types": {
+      "dry": "Dry Toilet",
+      "composting": "Composting Toilet"
+    },
+    "success": {
+      "approved": "Post approved successfully",
+      "rejected": "Post rejected successfully"
+    },
+    "errors": {
+      "loadPosts": "Failed to load pending posts",
+      "approve": "Failed to approve post",
+      "reject": "Failed to reject post"
+    }
+  },
+  "map": {
+    "nearbyPosts": "Nearby Dry Toilets",
+    "noPosts": "No dry toilets found in this area",
+    "viewDetails": "View Details",
+    "loading": "Loading map...",
+    "filters": {
+      "title": "Filters",
+      "radius": {
+        "label": "Search Radius",
+        "20km": "20 km",
+        "50km": "50 km",
+        "100km": "100 km"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Enter a city or address"
+      }
+    }
   }
 } 

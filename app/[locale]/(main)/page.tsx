@@ -1,163 +1,165 @@
 import React from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { getTranslations } from 'next-intl/server';
-
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { 
+  Droplets, 
+  Sprout, 
+  Recycle, 
+  Mountain,
+  ArrowRight 
+} from "lucide-react";
+import Image from "next/image";
 
 export default async function Home() {
-  const t = await getTranslations('home');
+  const t = await getTranslations();
+
   return (
-    <>
-      <div className="grow flex flex-col items-center justify-evenly">
-        <section className="space-y-6">
-          <div className="container flex flex-col items-center gap-8 text-center">
-            <Badge variant="secondary">{t('title')}</Badge>
-            <Badge className="space-x-4 font-normal text-sm">
-              <p>
-                <span className="font-bold">Ve</span>rcel
-              </p>
-              <p>
-                <span className="font-bold">Ne</span>xt.js
-              </p>
-              <p>
-                <span className="font-bold">Fi</span>rebase
-              </p>
-              <p>
-                <span className="font-bold">sh</span>adcn/ui
-              </p>
-            </Badge>
-            <h1 className="max-w-4xl font-heading font-semibold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter">
-              Quickly start building your next billion dollar app.
-            </h1>
-            <p className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-              Boilerplate &amp; template for React projects using Next.js,
-              shadcn/ui, Tailwind and Firebase...and TypeScript, of course!
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/img/pexels-berend-1452701.jpg"
+            alt="Eco-friendly dry toilet"
+            fill
+            className="object-cover brightness-50"
+            priority
+          />
+        </div>
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/70 to-green-900/70 z-1"></div>
+
+        {/* Content */}
+        <div className="container px-4 mx-auto relative z-10 text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            {t('home.hero.title')}
+          </h1>
+          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-green-50">
+            {t('home.hero.description')}
+          </p>
+          
+          {/* Search Component */}
+          <div className="flex justify-center mb-8">
+            <Link href="/map">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                Explorar <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+          <ArrowRight className="h-6 w-6 text-white transform rotate-90" />
+        </div>
+      </section>
+
+      {/* Description Content */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container px-4 mx-auto">
+          {/* What are dry toilets */}
+          <div>
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-center">
+              {t('home.hero.platformDescription')}
             </p>
-            <div className="space-x-4">
-              <Link href="/login">
-                <Button size="lg">Call to Action!</Button>
-              </Link>
-              <Link target="_blank" href="https://github.com/enesien/venefish">
-                <Button size="lg" variant="link">
-                  View Project on GitHub &rarr;
-                </Button>
-              </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-green-50 dark:bg-green-900 py-16">
+        <div className="container px-4 mx-auto text-center">
+          <h2 className="text-3xl font-bold text-green-900 dark:text-green-50 mb-6">
+            {t('home.sections.cta.title')}
+          </h2>
+          <p className="text-lg text-green-800 dark:text-green-100 mb-8 max-w-2xl mx-auto">
+            {t('home.sections.cta.description')}
+          </p>
+          <Link href="/signup">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              {t('common.signUpNow')} <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container px-4 mx-auto">
+          {/* What are dry toilets */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              {t('home.sections.whatIs.title')}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              {t('home.sections.whatIs.content')}
+            </p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+              {t('home.sections.benefits.title')}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {t.raw('home.sections.benefits.list').map((benefit: string, index: number) => {
+                const icons = [
+                  <Droplets key="1" className="h-8 w-8 text-blue-500" />,
+                  <Sprout key="2" className="h-8 w-8 text-green-500" />,
+                  <Recycle key="3" className="h-8 w-8 text-yellow-500" />,
+                  <Mountain key="4" className="h-8 w-8 text-purple-500" />
+                ];
+
+                return (
+                  <div key={index} className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    {icons[index]}
+                    <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
+                      {benefit}
+                    </h3>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </section>
-        <section className="container mt-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+
+          {/* How it works */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              {t('home.sections.howWorks.title')}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              {t('home.sections.howWorks.content')}
+            </p>
+          </div>
+
+          {/* Additional Sections */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <Card className=" shadow-teal-200 shadow-md border-teal-400">
-                <CardHeader>
-                  <CardTitle>Need advanced data parsing?</CardTitle>
-                  <CardDescription>
-                    Check out BestParse/AI for all your parsing needs.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link
-                    href="https://bestparse.com?utm_source=venefish"
-                    target="_blank"
-                    className="underline text-slate-800 font-medium"
-                  >
-                    BestParse/AI
-                  </Link>{" "}
-                  can parse any text to JSON. It's free to use and and gives you
-                  great results when extracting and parsing scraped data, logs,
-                  or any other raw text.
-                  <p className="mt-4 font-semibold">
-                    20% off the pro plan with code "VENEFISH"
-                  </p>
-                  <Link
-                    className={cn(
-                      buttonVariants({ size: "xl", variant: "teal" }),
-                      "mt-4 w-full"
-                    )}
-                    href="https://bestparse.com?utm_source=venefish"
-                  >
-                    Try BestParse/AI &rarr;
-                  </Link>
-                </CardContent>
-              </Card>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('home.sections.maintenance.title')}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300">
+                {t('home.sections.maintenance.content')}
+              </p>
             </div>
             <div>
-              <Card className=" shadow-emerald-200 shadow-md border-emerald-400">
-                <CardHeader>
-                  <CardTitle>Looking for a job?</CardTitle>
-                  <CardDescription>
-                    Use JobLogr's AI tools to help you find your next job.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link
-                    href="https://joblogr.com?utm_source=venefish&utm_medium=landing&utm_campaign=ten"
-                    target="_blank"
-                    className="underline text-slate-800 font-medium"
-                  >
-                    JobLogr.com
-                  </Link>{" "}
-                  is an awesome job search tool that uses AI to help you find
-                  your next job faster than ever before. It's free to try, but
-                  if you decide to upgrade to the pro plan, you can use code
-                  "VENEFISH" for $10 off.
-                  <Link
-                    className={cn(
-                      buttonVariants({ size: "xl" }),
-                      "mt-4 w-full"
-                    )}
-                    href="https://joblogr.com?utm_source=venefish&utm_medium=landing&utm_campaign=ten"
-                  >
-                    Use JobLogr for Free
-                  </Link>
-                </CardContent>
-              </Card>
-            </div>
-            <div>
-              <Card className=" shadow-slate-200 shadow-md border-slate-400">
-                <CardHeader>
-                  <CardTitle>Need web development?</CardTitle>
-                  <CardDescription>
-                    Check out Enesien Software for all your web development
-                    needs.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link
-                    href="https://enesien.com?utm_source=venefish"
-                    target="_blank"
-                    className="underline text-slate-800 font-medium"
-                  >
-                    Enesien Software
-                  </Link>{" "}
-                  is a web development company that specializes in building
-                  custom web applications. We use modern technologies and
-                  frameworks to build scalable and maintainable web
-                  applications.
-                  <Link
-                    className={cn(
-                      buttonVariants({ variant: "orange", size: "xl" }),
-                      "mt-4 w-full"
-                    )}
-                    href="https://enesien.com?utm_source=venefish"
-                  >
-                    Learn More &rarr;
-                  </Link>
-                </CardContent>
-              </Card>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('home.sections.differences.title')}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300">
+                {t('home.sections.differences.content')}
+              </p>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+    </div>
   );
+}
+
+export const metadata = {
+  title: 'Home'
 }

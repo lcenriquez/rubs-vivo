@@ -12,24 +12,31 @@ import {
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useUser } from "reactfire";
+import { useTranslations } from 'next-intl';
 
-export const AuthCard = () => {
-  const [isShowingSignUp, setIsShowingSignUp] = useState<boolean>(false);
+export const AuthCard = ({ isSignUp = false }) => {
+  const [isShowingSignUp, setIsShowingSignUp] = useState<boolean>(isSignUp);
   const { data: user } = useUser();
   const router = useRouter();
+  const t = useTranslations('auth');
 
   useEffect(() => {
     if (user) {
       router.push("/app");
     }
   }, [user]);
+
   return (
     <>
       <Card>
         <CardHeader>
-          <CardTitle>{isShowingSignUp ? "Sign Up" : "Sign In"}</CardTitle>
+          <CardTitle>
+            {isShowingSignUp ? t('signUp.title') : t('signIn.title')}
+          </CardTitle>
           <CardDescription>
-            Give them a reason to {isShowingSignUp ? "sign up" : "sign in"}.
+            {isShowingSignUp 
+              ? t('signUp.description', { defaultMessage: 'Join our community of eco-conscious users' })
+              : t('signIn.description', { defaultMessage: 'Welcome back!' })}
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -6,8 +6,16 @@ import { Toaster } from "@/components/ui/toaster";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 const font = Work_Sans({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: {
+    template: 'RUBS Vivo | %s',
+    default: 'RUBS Vivo'
+  }
+};
 
 export function generateStaticParams() {
   return [{locale: 'es'}, {locale: 'en'}];

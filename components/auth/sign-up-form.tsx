@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuth } from "reactfire";
+import { useTranslations } from 'next-intl';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -32,6 +33,7 @@ interface SignUpFormProps {
 
 export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations('auth');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,15 +50,17 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
       setIsLoading(true);
       const user = await createUserWithEmailAndPassword(auth, email, password);
       if (user?.user.uid && user.user.email) {
-        // create user in firestore here if you want
-        toast({ title: "Account created!" });
+        toast({ title: t('signUp.success') });
         onSignUp?.();
       }
     } catch (err: any) {
       if ("code" in err && err.code.includes("already")) {
-        toast({ title: "User already exists" });
+        toast({ title: t('signUp.errors.userExists') });
       } else {
-        toast({ title: "Error signing up", description: `${err}` });
+        toast({ 
+          title: t('signUp.errors.default'),
+          description: `${err}`
+        });
       }
     } finally {
       setIsLoading(false);
@@ -73,12 +77,12 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel>{t('email')}</FormLabel>
                   <FormControl>
                     <Input type="email" {...field} />
                   </FormControl>
                   <FormDescription>
-                    A valid email is required to watch locked specials.
+                    {t('signUp.emailDescription')}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -89,26 +93,26 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{t('password')}</FormLabel>
                   <FormControl>
                     <Input type="password" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Must be at least 8 characters long.
+                    {t('signUp.passwordDescription')}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">{t('signUp.title')}</Button>
           </fieldset>
         </form>
       </Form>
 
       <p className="mt-4 text-sm">
-        Already joined?{" "}
+        {t('signUp.alreadyJoined')}{" "}
         <Button variant="link" onClick={onShowLogin}>
-          Sign in instead.
+          {t('signUp.signInInstead')}
         </Button>
       </p>
     </>
