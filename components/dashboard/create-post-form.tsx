@@ -64,7 +64,11 @@ export function CreatePostForm({ onClose, onSuccess }: CreatePostFormProps) {
       await createPost({
         ...data,
         userId: user.uid,
-        status: 'pending'
+        status: 'pending',
+        author: {
+          displayName: user.displayName,
+          email: user.email
+        }
       }, firestore, postId);
       onSuccess();
     } catch (error) {

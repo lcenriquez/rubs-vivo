@@ -64,7 +64,11 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
       await updatePost(post.id, {
         ...data,
         userId: user.uid,
-        status: 'pending'
+        status: 'pending',
+        author: {
+          displayName: user.displayName,
+          email: user.email
+        }
       }, firestore);
       onSuccess();
     } catch (error) {

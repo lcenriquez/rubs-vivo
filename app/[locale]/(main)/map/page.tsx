@@ -62,9 +62,12 @@ export default function MapPage() {
     }
   }, [center, radius, isLoaded, firestore]);
 
-  // const handleLocationChange = (lat: number, lng: number) => {
-  //   router.push(`/map?lat=${lat}&lng=${lng}`);
-  // };
+  const handleLocationChange = (lat: number, lng: number) => {
+    const newParams = new URLSearchParams(searchParams?.toString() || '');
+    newParams.set('lat', lat.toString());
+    newParams.set('lng', lng.toString());
+    router.push(`/map?${newParams.toString()}`);
+  };
 
   const handleZoom = (delta: number) => {
     if (map) {
@@ -93,7 +96,7 @@ export default function MapPage() {
             </label>
             <SearchLocation 
               initialValue={searchParams?.get('address') || ''}
-              // onLocationSelect={handleLocationChange}
+              onLocationSelect={handleLocationChange}
               placeholder={t('map.filters.location.placeholder')}
             />
           </div>

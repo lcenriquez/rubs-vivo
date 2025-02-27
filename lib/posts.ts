@@ -11,6 +11,10 @@ interface CreatePostData {
   description: string;
   photos: PostPhoto[];
   status: 'pending';
+  author: {
+    displayName: string | null;
+    email: string | null;
+  };
 }
 
 export function generatePostRef(db: any): { id: string, ref: any } {

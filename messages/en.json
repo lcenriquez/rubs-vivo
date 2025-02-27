@@ -57,6 +57,8 @@
   },
   "auth": {
     "email": "Email",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "separator": {
       "text": "or continue with"
     },
