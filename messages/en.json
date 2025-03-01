@@ -152,12 +152,18 @@
         "description": "Upload up to 10 photos",
         "coverPhoto": "Cover Photo",
         "dropzone": "Drop photos here or click to upload",
+        "compressing": "Compressing image...",
+        "uploading": "Uploading",
+        "moveLeft": "Move left",
+        "moveRight": "Move right",
         "error": {
           "required": "At least one photo is required",
           "tooMany": "Maximum 10 photos allowed",
           "invalidType": "Only image files are allowed",
           "tooLarge": "File is too large",
-          "deletePhoto": "Failed to delete photo"
+          "deletePhoto": "Failed to delete photo",
+          "invalidPhoto": "Invalid photo selection",
+          "uploadFailed": "Failed to upload photo"
         }
       },
       "save":"Save",

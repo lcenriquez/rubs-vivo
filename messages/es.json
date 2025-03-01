@@ -152,12 +152,18 @@
         "description": "Sube hasta 10 fotos",
         "coverPhoto": "Foto de Portada",
         "dropzone": "Arrastra las fotos aquí o haz clic para subirlas",
+        "compressing": "Comprimiendo imagen...",
+        "uploading": "Subiendo",
+        "moveLeft": "Mover a la izquierda",
+        "moveRight": "Mover a la derecha",
         "error": {
           "required": "Se requiere al menos una foto",
           "tooMany": "Máximo 10 fotos permitidas",
           "invalidType": "Solo se permiten archivos de imagen",
           "tooLarge": "El archivo es demasiado grande",
-          "deletePhoto": "Error al eliminar la foto"
+          "deletePhoto": "Error al eliminar la foto",
+          "invalidPhoto": "Selección de foto inválida",
+          "uploadFailed": "Error al subir la foto"
         }
       },
       "save":"Guardar",
