@@ -10,9 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Post } from '@/types/post';
 import { getNearbyPosts } from '@/lib/posts';
-import { Loader2, MapPin, Plus, Minus } from 'lucide-react';
+import { Loader2, MapPin, Plus, Minus, Text } from 'lucide-react';
 import { SearchLocation } from '@/components/search-location';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { PostDetailsModal } from '@/components/post-details-modal';
 
 const DEFAULT_CENTER = {
   lat: 18.9242,  // Cuernavaca coordinates
@@ -31,6 +32,7 @@ export default function MapPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [radius, setRadius] = useState(DEFAULT_RADIUS);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const center = useMemo(() => {
     if (!searchParams) return DEFAULT_CENTER;
@@ -212,19 +214,32 @@ export default function MapPage() {
 
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
-                  <Badge>{t(`dashboard.form.type.options.${post.type}`)}</Badge>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge>{t(`dashboard.form.type.options.${post.type}`)}</Badge>
+                    <Badge>{t(`dashboard.form.urineSystem.options.${post.urineSystem}`)}</Badge>
+                  </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground line-clamp-3 mt-2">
-                  {post.description}
-                </p>
-
-                <div className="flex items-center text-sm text-muted-foreground mt-4">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  {post.location.address}
+                <div className="flex items-start text-sm text-muted-foreground mt-4">
+                  <MapPin className="h-4 w-4 mr-1 flex-shrink-0 mt-0.5" />
+                  <span className="line-clamp-2">{post.location.address}</span>
                 </div>
 
-                <Button className="w-full mt-4">
+                {post.description && (
+                  <div className="flex items-start text-sm text-muted-foreground mt-4">
+                    <Text className="h-4 w-4 mr-1 flex-shrink-0 mt-0.5" />
+                    <span className="line-clamp-2">{post.description}</span>
+                  </div>
+                )}
+
+                <Button 
+                  className="w-full mt-4"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPost(post);
+                    setIsDetailsModalOpen(true);
+                  }}
+                >
                   {t('map.viewDetails')}
                 </Button>
               </Card>
@@ -232,6 +247,17 @@ export default function MapPage() {
           </div>
         )}
       </div>
+
+      {selectedPost && (
+        <PostDetailsModal
+          post={selectedPost}
+          open={isDetailsModalOpen}
+          onClose={() => {
+            setIsDetailsModalOpen(false);
+            setSelectedPost(null);
+          }}
+        />
+      )}
     </div>
   );
 } 

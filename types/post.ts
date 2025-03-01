@@ -22,6 +22,24 @@ export interface Post {
   description: string;
   photos: PostPhoto[];
   status: PostStatus;
-  createdAt: Date;
-  updatedAt: Date;
+  author: {
+    displayName: string | null;
+    email: string | null;
+  };
+  createdAt?: any;
+  updatedAt?: any;
+  dryMixture?: string;
+  urineSystem?: 'separated' | 'not_separated';
+  hasCollectionService?: boolean;
+  collectionService?: {
+    name?: string;
+    website?: string;
+  };
+  showContactInfo?: boolean;
+  contactInfo?: {
+    name?: string;
+    phone?: string;
+    email?: string;
+    website?: string;
+  };
 } 

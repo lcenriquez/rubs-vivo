@@ -10,6 +10,7 @@
   },
   "common": {
     "language": "Language",
+    "return": "Return",
     "switchToSpanish": "Switch to Spanish",
     "switchToEnglish": "Switch to English",
     "signUpNow": "Sign up now!"
@@ -164,6 +165,57 @@
           "deletePhoto": "Failed to delete photo",
           "invalidPhoto": "Invalid photo selection",
           "uploadFailed": "Failed to upload photo"
+        }
+      },
+      "dryMixture": {
+        "label": "Dry Mix",
+        "description": "If you'd like, tell us about the dry material mix you use for your toilet",
+        "placeholder": "Describe the dry mix you use..."
+      },
+      "urineSystem": {
+        "label": "Urine Separation",
+        "placeholder": "Select type",
+        "options": {
+          "separated": "With separation",
+          "not_separated": "Without separation"
+        }
+      },
+      "collectionService": {
+        "label": "Collection Service",
+        "hasService": {
+          "label": "Add collection service information",
+          "description": "Enable this if you want to provide information about a collection service"
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter the name of the collection service"
+        },
+        "website": {
+          "label": "Website",
+          "placeholder": "Enter the website of the collection service"
+        }
+      },
+      "contactInfo": {
+        "label": "Contact Information",
+        "hasInfo": {
+          "label": "Show contact information in post",
+          "description": "When enabled, your contact information will be visible to other users"
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter contact name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter phone number"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter email address"
+        },
+        "website": {
+          "label": "Website",
+          "placeholder": "Enter website URL"
         }
       },
       "save":"Save",

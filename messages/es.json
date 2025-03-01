@@ -10,6 +10,7 @@
   },
   "common": {
     "language": "Idioma",
+    "return": "Volver",
     "switchToSpanish": "Cambiar a Español",
     "switchToEnglish": "Cambiar a Inglés",
     "signUpNow": "¡Regístrate ahora!"
@@ -164,6 +165,57 @@
           "deletePhoto": "Error al eliminar la foto",
           "invalidPhoto": "Selección de foto inválida",
           "uploadFailed": "Error al subir la foto"
+        }
+      },
+      "dryMixture": {
+        "label": "Mezcla",
+        "description": "Si lo deseas, cuéntanos sobre la mezcla de materia seca que utilizas para tu sanitario",
+        "placeholder": "Describe la mezcla que utilizas..."
+      },
+      "urineSystem": {
+        "label": "Separación de orina",
+        "placeholder": "Seleccionar tipo",
+        "options": {
+          "separated": "Con separación",
+          "not_separated": "Sin separación"
+        }
+      },
+      "collectionService": {
+        "label": "Servicio de recolección",
+        "hasService": {
+          "label": "Agregar información del servicio de recolección",
+          "description": "Habilita esto si deseas proporcionar información sobre un servicio de recolección"
+        },
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingresa el nombre del servicio de recolección"
+        },
+        "website": {
+          "label": "Sitio web",
+          "placeholder": "Ingresa el sitio web del servicio de recolección"
+        }
+      },
+      "contactInfo": {
+        "label": "Datos de contacto",
+        "hasInfo": {
+          "label": "Mostrar datos de contacto en la publicación",
+          "description": "Cuando está habilitado, tus datos de contacto serán visibles para otros usuarios"
+        },
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingresa el nombre de contacto"
+        },
+        "phone": {
+          "label": "Teléfono",
+          "placeholder": "Ingresa el número de teléfono"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Ingresa la dirección de correo electrónico"
+        },
+        "website": {
+          "label": "Sitio web",
+          "placeholder": "Ingresa la URL del sitio web"
         }
       },
       "save":"Guardar",

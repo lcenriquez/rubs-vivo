@@ -8,12 +8,26 @@ interface CreatePostData {
   title: string;
   type: PostType;
   location: Location;
-  description: string;
+  description?: string;
   photos: PostPhoto[];
   status: 'pending';
   author: {
     displayName: string | null;
     email: string | null;
+  };
+  dryMixture?: string;
+  urineSystem?: 'separated' | 'not_separated';
+  hasCollectionService?: boolean;
+  collectionService?: {
+    name?: string;
+    website?: string;
+  };
+  showContactInfo?: boolean;
+  contactInfo?: {
+    name?: string;
+    phone?: string;
+    email?: string;
+    website?: string;
   };
 }
 
