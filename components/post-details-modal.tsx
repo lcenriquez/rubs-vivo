@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Post } from '@/types/post';
 import { useTranslations } from 'next-intl';
-import { MapPin, ChevronLeft, ChevronRight, Phone, Mail, Globe, ArrowLeft } from 'lucide-react';
+import { MapPin, ChevronLeft, ChevronRight, Phone, Mail, Globe } from 'lucide-react';
+
 interface PostDetailsModalProps {
   post: Post;
   open: boolean;
@@ -15,6 +16,48 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
   const t = useTranslations();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState<{[key: number]: boolean}>({});
+  
+  // Reset loading state when the current image changes
+  useEffect(() => {
+    if (!loadedImages[currentImageIndex]) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }, [currentImageIndex, loadedImages]);
+
+  // Preload images for smoother transitions
+  useEffect(() => {
+    if (open && post.photos) {
+      // Preload current and adjacent images
+      const imagesToPreload = [
+        currentImageIndex,
+        (currentImageIndex + 1) % post.photos.length,
+        (currentImageIndex - 1 + post.photos.length) % post.photos.length
+      ];
+      
+      imagesToPreload.forEach(index => {
+        const img = new window.Image();
+        img.src = post.photos[index].url;
+        img.onload = () => {
+          setLoadedImages(prev => ({...prev, [index]: true}));
+          if (index === currentImageIndex) {
+            setIsLoading(false);
+          }
+        };
+      });
+    }
+  }, [open, post.photos, currentImageIndex]);
+  
+  // Reset states when modal opens
+  useEffect(() => {
+    if (open) {
+      setCurrentImageIndex(0);
+      setIsLoading(true);
+    }
+  }, [open]);
 
   const handlePrevImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -34,6 +77,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
       
       if (e.key === 'ArrowLeft') handlePrevImage();
       if (e.key === 'ArrowRight') handleNextImage();
+      if (e.key === 'Escape') setIsFullScreen(false);
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -55,22 +99,32 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
         <DialogContent className="max-w-3xl p-0 max-h-[90vh] flex flex-col overflow-hidden">
           <DialogTitle className="sr-only">{post.title}</DialogTitle>
           <div className="relative">
-            <div className="aspect-video relative">
-              <img
-                src={post.photos[currentImageIndex].url}
-                alt=""
-                className="w-full h-full object-cover cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsFullScreen(true);
-                }}
-              />
+            <div className="aspect-video relative w-full overflow-hidden bg-muted">
+              <div className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+                <img
+                  src={post.photos[currentImageIndex].url}
+                  alt=""
+                  className="w-full h-full object-cover cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsFullScreen(true);
+                  }}
+                  onLoad={() => setIsLoading(false)}
+                />
+              </div>
+              
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
+              
               {post.photos.length > 1 && (
                 <>
                   <Button
                     size="icon"
                     variant="ghost"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 z-10"
                     onClick={(e) => {
                       e.stopPropagation();
                       handlePrevImage(e);
@@ -81,7 +135,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
                   <Button
                     size="icon"
                     variant="ghost"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 z-10"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleNextImage(e);
@@ -94,7 +148,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
             </div>
 
             {post.photos.length > 1 && (
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
                 {post.photos.map((_, index) => (
                   <button
                     key={index}
@@ -209,30 +263,42 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
 
       {/* Full screen image modal using Shadcn Dialog */}
       <Dialog open={isFullScreen} onOpenChange={setIsFullScreen}>
-        <DialogContent className="max-w-[100vw] max-h-[100vh] h-screen w-screen p-0 bg-black border-none">
+        <DialogContent 
+          className="max-w-none max-h-none h-screen w-screen p-0 bg-black border-none"
+          closeButtonVariant="light"
+        >
           <DialogTitle className="sr-only">{`${post.title} - Image ${currentImageIndex + 1} of ${post.photos.length}`}</DialogTitle>
           <div className="relative w-full h-full flex items-center justify-center">
-            <img
-              src={post.photos[currentImageIndex].url}
-              alt=""
-              className="max-w-[90vw] max-h-[90vh] object-contain"
-            />
+            <div className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'} flex items-center justify-center h-full w-full`}>
+              <img
+                src={post.photos[currentImageIndex].url}
+                alt=""
+                className="max-w-[95vw] max-h-[85vh] object-contain"
+                onLoad={() => setIsLoading(false)}
+              />
+            </div>
             
-            <Button
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+            
+            {/* <Button
               variant="ghost"
               className="absolute top-4 left-4 text-white hover:bg-white/10 flex items-center gap-2"
               onClick={() => setIsFullScreen(false)}
             >
               <ArrowLeft className="h-5 w-5" />
               <span>{t('common.return') || 'Return'}</span>
-            </Button>
+            </Button> */}
 
             {post.photos.length > 1 && (
               <>
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 md:left-8"
                   onClick={handlePrevImage}
                 >
                   <ChevronLeft className="h-8 w-8" />
@@ -240,7 +306,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 md:right-8"
                   onClick={handleNextImage}
                 >
                   <ChevronRight className="h-8 w-8" />
@@ -248,8 +314,22 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
               </>
             )}
           </div>
+          
+          {post.photos.length > 1 && (
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3">
+              {post.photos.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentImageIndex ? 'bg-white' : 'bg-white/40'
+                  }`}
+                  onClick={() => setCurrentImageIndex(index)}
+                />
+              ))}
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </>
   );
-} 
+}
