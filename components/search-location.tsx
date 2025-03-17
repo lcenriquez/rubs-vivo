@@ -12,7 +12,7 @@ const libraries: ("places")[] = ["places"];
 
 interface SearchLocationProps {
   initialValue?: string;
-  onLocationSelect?: (lat: number, lng: number) => void;
+  onLocationSelect?: (lat: number, lng: number, address?: string) => void;
   placeholder?: string;
 }
 
@@ -29,6 +29,10 @@ export function SearchLocation({ initialValue = '', onLocationSelect, placeholde
   });
 
   useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  useEffect(() => {
     if (isLoaded && inputRef.current) {
       autocompleteRef.current = new window.google.maps.places.Autocomplete(
         inputRef.current,
@@ -41,7 +45,7 @@ export function SearchLocation({ initialValue = '', onLocationSelect, placeholde
           const lat = place.geometry.location.lat();
           const lng = place.geometry.location.lng();
           setValue(place.formatted_address || '');
-          onLocationSelect?.(lat, lng);
+          onLocationSelect?.(lat, lng, place.formatted_address);
         }
       });
     }
@@ -59,7 +63,8 @@ export function SearchLocation({ initialValue = '', onLocationSelect, placeholde
         if (status === 'OK' && results?.[0]?.geometry?.location) {
           const lat = results[0].geometry.location.lat();
           const lng = results[0].geometry.location.lng();
-          onLocationSelect?.(lat, lng);
+          const address = results[0].formatted_address;
+          onLocationSelect?.(lat, lng, address);
         }
         setIsLoading(false);
       }
@@ -77,7 +82,7 @@ export function SearchLocation({ initialValue = '', onLocationSelect, placeholde
             className="w-full pl-4 h-12 text-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm"
           />
         </div>
-        <Button disabled type="button" size="lg" className="h-12 px-6 bg-green-600">
+        <Button disabled type="button" size="lg" className="h-12 px-6">
           <Loader2 className="h-5 w-5 animate-spin" />
         </Button>
       </div>

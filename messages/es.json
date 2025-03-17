@@ -253,22 +253,27 @@
     }
   },
   "map": {
-    "nearbyPosts": "Baños Secos Cercanos",
-    "noPosts": "No se encontraron baños secos en esta área",
-    "viewDetails": "Ver Detalles",
-    "loading": "Cargando mapa...",
     "filters": {
       "title": "Filtros",
+      "location": {
+        "label": "Ubicación",
+        "placeholder": "Ingresa una dirección"
+      },
       "radius": {
-        "label": "Radio de Búsqueda",
+        "label": "Radio de búsqueda",
         "20km": "20 km",
         "50km": "50 km",
         "100km": "100 km"
-      },
-      "location": {
-        "label": "Ubicación",
-        "placeholder": "Ingresa una ciudad o dirección"
       }
+    },
+    "nearbyPosts": "Publicaciones cercanas",
+    "noPosts": "No se encontraron publicaciones en esta área",
+    "viewDetails": "Ver detalles",
+    "locationPermission": {
+      "requesting": "Solicitando acceso a la ubicación...",
+      "denied": "Acceso a la ubicación denegado",
+      "error": "Error al obtener la ubicación",
+      "enterAddress": "Ingresa una dirección arriba para descubrir publicaciones cercanas"
     }
   }
 } 

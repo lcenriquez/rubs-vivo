@@ -253,22 +253,27 @@
     }
   },
   "map": {
-    "nearbyPosts": "Nearby Dry Toilets",
-    "noPosts": "No dry toilets found in this area",
-    "viewDetails": "View Details",
-    "loading": "Loading map...",
     "filters": {
       "title": "Filters",
+      "location": {
+        "label": "Location",
+        "placeholder": "Enter an address"
+      },
       "radius": {
-        "label": "Search Radius",
+        "label": "Search radius",
         "20km": "20 km",
         "50km": "50 km",
         "100km": "100 km"
-      },
-      "location": {
-        "label": "Location",
-        "placeholder": "Enter a city or address"
       }
+    },
+    "nearbyPosts": "Nearby Posts",
+    "noPosts": "No posts found in this area",
+    "viewDetails": "View Details",
+    "locationPermission": {
+      "requesting": "Requesting location access...",
+      "denied": "Location access was denied",
+      "error": "Error getting location",
+      "enterAddress": "Enter an address above to discover nearby listings"
     }
   }
 } 
