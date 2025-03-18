@@ -60,9 +60,9 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
   };
 
   return (
-    <>
+    <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(login)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(login)} className="space-y-4">
           <FormField
             control={form.control}
             name="email"
@@ -70,7 +70,7 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
               <FormItem>
                 <FormLabel>{t('email')}</FormLabel>
                 <FormControl>
-                  <Input type="email" {...field} />
+                  <Input type="email" {...field} className="w-full" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -83,30 +83,32 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
               <FormItem>
                 <FormLabel>{t('password')}</FormLabel>
                 <FormControl>
-                  <Input type="password" {...field} />
+                  <Input type="password" {...field} className="w-full" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isLoading}>
+          <Button type="submit" disabled={isLoading} className="w-full">
             {t('signIn.title')}
           </Button>
         </form>
       </Form>
-      <p className="mt-4 text-sm">
-        {t('signIn.forgotPassword')}{" "}
-        <Button variant="link" onClick={() => setIsResetOpen(true)}>
-          {t('signIn.reset')}
-        </Button>
-      </p>
-      <p className="text-sm">
-        {t('signIn.noAccount')}{" "}
-        <Button variant="link" onClick={onShowSignUp}>
-          {t('signIn.createAccount')}
-        </Button>
-      </p>
+      <div className="mt-4 space-y-2 text-center">
+        <p className="text-sm">
+          {t('signIn.forgotPassword')}{" "}
+          <Button variant="link" onClick={() => setIsResetOpen(true)} className="p-0 h-auto text-sm font-medium">
+            {t('signIn.reset')}
+          </Button>
+        </p>
+        <p className="text-sm">
+          {t('signIn.noAccount')}{" "}
+          <Button variant="link" onClick={onShowSignUp} className="p-0 h-auto text-sm font-medium">
+            {t('signIn.createAccount')}
+          </Button>
+        </p>
+      </div>
       <ModalForgotPassword isOpen={isResetOpen} setIsOpen={setIsResetOpen} />
-    </>
+    </div>
   );
 };

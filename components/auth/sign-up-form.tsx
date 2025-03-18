@@ -88,11 +88,11 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
   };
 
   return (
-    <>
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(signup)}>
           <fieldset disabled={isLoading} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="firstName"
@@ -100,7 +100,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
                   <FormItem>
                     <FormLabel>{t('firstName')}</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} className="w-full" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -113,7 +113,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
                   <FormItem>
                     <FormLabel>{t('lastName')}</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input {...field} className="w-full" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -127,9 +127,9 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
                 <FormItem>
                   <FormLabel>{t('email')}</FormLabel>
                   <FormControl>
-                    <Input type="email" {...field} />
+                    <Input type="email" {...field} className="w-full" />
                   </FormControl>
-                  <FormDescription>
+                  <FormDescription className="text-xs">
                     {t('signUp.emailDescription')}
                   </FormDescription>
                   <FormMessage />
@@ -143,26 +143,28 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onShowLogin, onSignUp }) => {
                 <FormItem>
                   <FormLabel>{t('password')}</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <Input type="password" {...field} className="w-full" />
                   </FormControl>
-                  <FormDescription>
+                  <FormDescription className="text-xs">
                     {t('signUp.passwordDescription')}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit">{t('signUp.title')}</Button>
+            <Button type="submit" className="w-full mt-2">{t('signUp.title')}</Button>
           </fieldset>
         </form>
       </Form>
 
-      <p className="mt-4 text-sm">
-        {t('signUp.alreadyJoined')}{" "}
-        <Button variant="link" onClick={onShowLogin}>
-          {t('signUp.signInInstead')}
-        </Button>
-      </p>
-    </>
+      <div className="mt-4 text-center">
+        <p className="text-sm">
+          {t('signUp.alreadyJoined')}{" "}
+          <Button variant="link" onClick={onShowLogin} className="p-0 h-auto text-sm font-medium">
+            {t('signUp.signInInstead')}
+          </Button>
+        </p>
+      </div>
+    </div>
   );
 };

@@ -27,26 +27,24 @@ export const AuthCard = ({ isSignUp = false }) => {
   }, [user]);
 
   return (
-    <>
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {isShowingSignUp ? t('signUp.title') : t('signIn.title')}
-          </CardTitle>
-          <CardDescription>
-            {isShowingSignUp 
-              ? t('signUp.description', { defaultMessage: 'Join our community of eco-conscious users' })
-              : t('signIn.description', { defaultMessage: 'Welcome back!' })}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {isShowingSignUp ? (
-            <SignUpForm onShowLogin={() => setIsShowingSignUp(false)} />
-          ) : (
-            <SignInForm onShowSignUp={() => setIsShowingSignUp(true)} />
-          )}
-        </CardContent>
-      </Card>
-    </>
+    <Card className="w-full">
+      <CardHeader className="space-y-1 px-4 py-4 sm:px-6">
+        <CardTitle className="text-2xl">
+          {isShowingSignUp ? t('signUp.title') : t('signIn.title')}
+        </CardTitle>
+        <CardDescription>
+          {isShowingSignUp 
+            ? t('signUp.description', { defaultMessage: 'Join our community of eco-conscious users' })
+            : t('signIn.description', { defaultMessage: 'Welcome back!' })}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="px-4 pb-6 sm:px-6">
+        {isShowingSignUp ? (
+          <SignUpForm onShowLogin={() => setIsShowingSignUp(false)} />
+        ) : (
+          <SignInForm onShowSignUp={() => setIsShowingSignUp(true)} />
+        )}
+      </CardContent>
+    </Card>
   );
 };
