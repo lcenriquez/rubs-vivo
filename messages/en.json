@@ -342,5 +342,88 @@
         "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
       }
     }
+  },
+  "privacyNotice": {
+    "title": "Privacy Notice",
+    "lastUpdated": "Last updated: April 7, 2025",
+    "introduction": "In compliance with the Federal Law on Protection of Personal Data Held by Private Parties, we inform you about how we collect, use, and protect your personal information.",
+    "responsibleParty": {
+      "title": "Identity and Address of the Responsible Party",
+      "description": "Red de Usuarios de Baño Seco (RUBS), located in Mexico, is responsible for collecting and processing your personal data."
+    },
+    "dataCollected": {
+      "title": "Personal Data We Collect",
+      "description": "We collect the following information:",
+      "items": [
+        "Name and contact information",
+        "Email address",
+        "Location data (only when explicitly shared)",
+        "Information about composting toilet installations"
+      ]
+    },
+    "purposes": {
+      "title": "Purposes of Data Processing",
+      "primary": {
+        "title": "Primary Purposes",
+        "items": [
+          "Enable user registration and authentication",
+          "Facilitate communication between users",
+          "Display location-based information about composting toilets",
+          "Provide technical support and assistance"
+        ]
+      },
+      "secondary": {
+        "title": "Secondary Purposes",
+        "items": [
+          "Send informational updates about composting toilets",
+          "Share community news and events",
+          "Improve our services through usage analysis"
+        ]
+      }
+    },
+    "rights": {
+      "title": "Your ARCO Rights",
+      "description": "You have the right to Access, Rectify, Cancel, or Object to the processing of your personal data. To exercise these rights, please contact us at:",
+      "contact": "privacy@rubs.org"
+    },
+    "dataTransfer": {
+      "title": "Data Transfer",
+      "description": "Your personal data will not be transferred to third parties without your consent, except as required by law."
+    },
+    "cookies": {
+      "title": "Cookies and Similar Technologies",
+      "description": "We use cookies and similar technologies to enhance your experience and collect usage data. You can control these through your browser settings."
+    },
+    "changes": {
+      "title": "Changes to Privacy Notice",
+      "description": "We reserve the right to modify this privacy notice. Any changes will be posted on this page with an updated revision date."
+    },
+    "consent": {
+      "title": "Consent",
+      "description": "By using our services, you consent to the processing of your personal data as described in this privacy notice."
+    }
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "map": "Map",
+    "compostingToilet": "Composting Toilet",
+    "social": "Social Media",
+    "legal": "Legal",
+    "privacyNotice": "Privacy Notice",
+    "settings": "Settings",
+    "theme": "Theme Mode",
+    "language": "Language",
+    "poweredBy": "Powered by"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "toggle": "Change language",
+    "english": "English",
+    "spanish": "Spanish"
   }
 } 

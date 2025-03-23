@@ -342,5 +342,88 @@
         "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
       }
     }
+  },
+  "privacyNotice": {
+    "title": "Aviso de Privacidad",
+    "lastUpdated": "Última actualización: 7 de abril de 2025",
+    "introduction": "En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, le informamos sobre cómo recopilamos, utilizamos y protegemos sus datos personales.",
+    "responsibleParty": {
+      "title": "Identidad y Domicilio del Responsable",
+      "description": "Red de Usuarios de Baño Seco (RUBS), con domicilio en México, es responsable de recabar y procesar sus datos personales."
+    },
+    "dataCollected": {
+      "title": "Datos Personales que Recabamos",
+      "description": "Recopilamos la siguiente información:",
+      "items": [
+        "Nombre e información de contacto",
+        "Dirección de correo electrónico",
+        "Datos de ubicación (solo cuando se comparten explícitamente)",
+        "Información sobre instalaciones de baños secos"
+      ]
+    },
+    "purposes": {
+      "title": "Finalidades del Tratamiento de Datos",
+      "primary": {
+        "title": "Finalidades Primarias",
+        "items": [
+          "Permitir el registro y autenticación de usuarios",
+          "Facilitar la comunicación entre usuarios",
+          "Mostrar información geolocalizada sobre baños secos",
+          "Proporcionar soporte técnico y asistencia"
+        ]
+      },
+      "secondary": {
+        "title": "Finalidades Secundarias",
+        "items": [
+          "Enviar actualizaciones informativas sobre baños secos",
+          "Compartir noticias y eventos de la comunidad",
+          "Mejorar nuestros servicios mediante análisis de uso"
+        ]
+      }
+    },
+    "rights": {
+      "title": "Sus Derechos ARCO",
+      "description": "Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, contáctenos en:",
+      "contact": "privacidad@rubs.org"
+    },
+    "dataTransfer": {
+      "title": "Transferencia de Datos",
+      "description": "Sus datos personales no serán transferidos a terceros sin su consentimiento, excepto cuando sea requerido por ley."
+    },
+    "cookies": {
+      "title": "Cookies y Tecnologías Similares",
+      "description": "Utilizamos cookies y tecnologías similares para mejorar su experiencia y recopilar datos de uso. Puede controlarlas a través de la configuración de su navegador."
+    },
+    "changes": {
+      "title": "Cambios al Aviso de Privacidad",
+      "description": "Nos reservamos el derecho de modificar este aviso de privacidad. Cualquier cambio será publicado en esta página con una fecha de revisión actualizada."
+    },
+    "consent": {
+      "title": "Consentimiento",
+      "description": "Al utilizar nuestros servicios, usted consiente el tratamiento de sus datos personales como se describe en este aviso de privacidad."
+    }
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "map": "Mapa",
+    "compostingToilet": "Baño Seco",
+    "social": "Redes Sociales",
+    "legal": "Legal",
+    "privacyNotice": "Aviso de Privacidad",
+    "settings": "Configuración",
+    "theme": "Modo de Tema",
+    "language": "Idioma",
+    "poweredBy": "Patrocinado por"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "toggle": "Cambiar idioma",
+    "english": "Inglés",
+    "spanish": "Español"
   }
 } 
