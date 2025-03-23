@@ -6,7 +6,8 @@
   },
   "nav": {
     "map": "Mapa",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "compostingToilet": "¿Por qué el baño seco?"
   },
   "common": {
     "language": "Idioma",
@@ -95,6 +96,9 @@
         "signInSuccess": "¡Sesión iniciada!",
         "error": "Error al iniciar sesión"
       }
+    },
+    "dashboard": {
+      "title": "Mis publicaciones"
     }
   },
   "dashboard": {
@@ -274,6 +278,69 @@
       "denied": "Acceso a la ubicación denegado",
       "error": "Error al obtener la ubicación",
       "enterAddress": "Ingresa una dirección arriba para descubrir publicaciones cercanas"
+    }
+  },
+  "compostingToilet": {
+    "title": "El Ciclo Roto: Sistemas de Drenaje vs. Baños Secos",
+    "introduction": "Los sistemas de drenaje modernos han alterado drásticamente el ciclo natural de nutrientes, generando impactos negativos en la salud del suelo y humano. Este desequilibrio se origina cuando los desechos humanos, cargados de nutrientes esenciales como nitrógeno y fósforo, son transportados lejos de los ecosistemas terrestres mediante tuberías, contaminando cuerpos de agua y agotando la fertilidad del suelo. En contraste, los baños secos emergen como una solución que restaura este ciclo, evitando la contaminación y devolviendo los nutrientes al suelo de forma segura.",
+    "conventionalSystems": {
+      "title": "El problema de los sistemas de drenaje convencionales",
+      "nutrientCycle": {
+        "title": "Interrupción del ciclo de nutrientes",
+        "description": "En la naturaleza, los nutrientes siguen un circuito cerrado: las plantas los absorben del suelo, los humanos los consumen y los desechos orgánicos regresan al suelo mediante procesos microbianos. Sin embargo, los sistemas de drenaje modernos rompen este flujo al mezclar desechos con agua limpia (10-16 litros por descarga) y canalizarlos hacia ríos o plantas de tratamiento. Este proceso no solo desperdicia agua potable, sino que concentra nutrientes en cuerpos de agua, desencadenando eutrofización, un fenómeno donde el exceso de nitrógeno y fósforo promueve el crecimiento descontrolado de algas, reduce el oxígeno acuático y mata especies marinas."
+      },
+      "soilDegradation": {
+        "title": "Degradación del suelo y dependencia de fertilizantes",
+        "description": "La pérdida continua de nutrientes obliga a los agricultores a usar fertilizantes químicos para mantener la productividad del suelo. Estos compuestos, al filtrarse hacia acuíferos y ríos, agravan la eutrofización y contaminan fuentes de agua potable. Además, suelos sin materia orgánica suficiente pierden estructura, se compactan y son más vulnerables a la erosión, reduciendo su capacidad para retener agua y nutrientes a largo plazo."
+      },
+      "healthRisks": {
+        "title": "Riesgos para la salud humana",
+        "description": "Los sistemas de drenaje deficientes crean ambientes propicios para vectores de enfermedades, como mosquitos, y facilitan la contaminación de aguas subterráneas con patógenos y químicos. Estudios demuestran que la exposición prolongada a nitratos en el agua está vinculada a metahemoglobinemia en infantes y posibles efectos carcinogénicos."
+      }
+    },
+    "solution": {
+      "title": "La solución: baños secos que restauran el ciclo natural",
+      "benefits": {
+        "title": "Funcionamiento y beneficios comprobados",
+        "description": "Los baños secos separan físicamente los desechos sólidos y líquidos. Los sólidos se tratan con material secante (aserrín, ceniza) y se compostan, transformándose en abono rico en nutrientes que puede reintegrarse al suelo sin riesgos sanitarios. Este método elimina el uso de agua, previene la contaminación de cuerpos hídricos y cierra el ciclo de nutrientes de manera sostenible.",
+        "stats": "Un estudio en Oaxaca demostró que 58 baños secos en domicilios y negocios evitaron la contaminación de 53,190 litros de agua anuales en un solo hotel, mientras que un usuario individual evitó 262,800 litros en 24 años. Esto evidencia su eficacia para reducir el impacto ambiental."
+      },
+      "soilHealth": {
+        "title": "Impacto en la salud del suelo",
+        "description": "Al devolver materia orgánica al suelo, los baños secos mejoran su estructura, aumentan la retención de agua y favorecen la actividad microbiana beneficiosa. Investigaciones en agricultura muestran que suelos enriquecidos con compost tienen hasta un 30% más de productividad comparados con suelos degradados, reduciendo la necesidad de fertilizantes sintéticos."
+      }
+    },
+    "future": {
+      "title": "Hacia un futuro sostenible",
+      "description": "Adoptar baños secos a escala comunitaria podría mitigar significativamente la eutrofización de cuerpos de agua, restaurar la fertilidad del suelo y reducir la dependencia de químicos agrícolas. Para lograrlo, se requiere educación sobre manejo seguro de compost y políticas que prioricen tecnologías de saneamiento ecológicas. La transición hacia sistemas circulares no solo protege el ambiente, sino que fortalece la seguridad alimentaria y la salud pública."
+    },
+    "images": {
+      "nutrientCycle": "Ciclo natural de nutrientes en ecosistemas",
+      "waterPollution": "Contaminación del agua por sistemas de drenaje",
+      "compostingProcess": "Proceso de compostaje en baños secos"
+    },
+    "citations": {
+      "title": "Referencias",
+      "1": {
+        "text": "Revista Mexicana de Ciencias Agrícolas",
+        "url": "https://www.scielo.org.mx/pdf/remexca/v9nspe20/2007-0934-remexca-9-spe20-4343.pdf"
+      },
+      "2": {
+        "text": "Organización Mundial de la Salud - Guías sobre Saneamiento y Salud",
+        "url": "https://www.who.int/publications/i/item/9789241514705"
+      },
+      "3": {
+        "text": "Agencia de Protección Ambiental - Contaminación por Nutrientes",
+        "url": "https://www.epa.gov/nutrientpollution"
+      },
+      "4": {
+        "text": "Organización de las Naciones Unidas para la Alimentación y la Agricultura - Degradación del Suelo",
+        "url": "https://www.fao.org/soils-portal/soil-degradation-restoration"
+      },
+      "5": {
+        "text": "Revista de Gestión Ambiental - Impacto de los Baños Secos",
+        "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
+      }
     }
   }
 } 

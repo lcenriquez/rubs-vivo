@@ -54,6 +54,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
+    "eslint": "^9.24.0",
     "postcss": "latest",
     "tailwindcss": "latest",
     "typescript": "latest"

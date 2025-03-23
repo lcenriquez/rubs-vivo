@@ -6,7 +6,8 @@
   },
   "nav": {
     "map": "Map",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "compostingToilet": "Why the composting toilet?"
   },
   "common": {
     "language": "Language",
@@ -95,6 +96,9 @@
         "signInSuccess": "Signed in!",
         "error": "Error signing in"
       }
+    },
+    "dashboard": {
+      "title": "My posts"
     }
   },
   "dashboard": {
@@ -274,6 +278,69 @@
       "denied": "Location access was denied",
       "error": "Error getting location",
       "enterAddress": "Enter an address above to discover nearby listings"
+    }
+  },
+  "compostingToilet": {
+    "title": "The Broken Cycle: Drainage Systems vs. Composting Toilets",
+    "introduction": "Modern drainage systems have drastically altered the natural nutrient cycle, generating negative impacts on soil and human health. This imbalance originates when human waste, loaded with essential nutrients like nitrogen and phosphorus, is transported away from terrestrial ecosystems through pipes, contaminating water bodies and depleting soil fertility. In contrast, composting toilets emerge as a solution that restores this cycle, preventing pollution and safely returning nutrients to the soil.",
+    "conventionalSystems": {
+      "title": "The Problem with Conventional Drainage Systems",
+      "nutrientCycle": {
+        "title": "Disruption of the Nutrient Cycle",
+        "description": "In nature, nutrients follow a closed circuit: plants absorb them from the soil, humans consume them, and organic waste returns to the soil through microbial processes. However, modern drainage systems break this flow by mixing waste with clean water (10-16 liters per flush) and channeling it to rivers or treatment plants. This process not only wastes drinking water but also concentrates nutrients in water bodies, triggering eutrophication, a phenomenon where excess nitrogen and phosphorus promotes uncontrolled algae growth, reduces aquatic oxygen, and kills marine species."
+      },
+      "soilDegradation": {
+        "title": "Soil Degradation and Fertilizer Dependency",
+        "description": "The continuous loss of nutrients forces farmers to use chemical fertilizers to maintain soil productivity. These compounds, when filtered into aquifers and rivers, worsen eutrophication and contaminate drinking water sources. Additionally, soils without sufficient organic matter lose structure, become compacted, and are more vulnerable to erosion, reducing their capacity to retain water and nutrients in the long term."
+      },
+      "healthRisks": {
+        "title": "Human Health Risks",
+        "description": "Deficient drainage systems create favorable environments for disease vectors, such as mosquitoes, and facilitate groundwater contamination with pathogens and chemicals. Studies show that prolonged exposure to nitrates in water is linked to methemoglobinemia in infants and possible carcinogenic effects."
+      }
+    },
+    "solution": {
+      "title": "The Solution: Composting Toilets that Restore the Natural Cycle",
+      "benefits": {
+        "title": "Operation and Proven Benefits",
+        "description": "Composting toilets physically separate solid and liquid waste. Solids are treated with drying material (sawdust, ash) and composted, transforming into nutrient-rich fertilizer that can be safely reintegrated into the soil. This method eliminates water use, prevents water body contamination, and closes the nutrient cycle sustainably.",
+        "stats": "A study in Oaxaca showed that 58 composting toilets in homes and businesses prevented the contamination of 53,190 liters of water annually in a single hotel, while an individual user avoided 262,800 liters over 24 years. This demonstrates their effectiveness in reducing environmental impact."
+      },
+      "soilHealth": {
+        "title": "Impact on Soil Health",
+        "description": "By returning organic matter to the soil, composting toilets improve its structure, increase water retention, and promote beneficial microbial activity. Agricultural research shows that soils enriched with compost have up to 30% more productivity compared to degraded soils, reducing the need for synthetic fertilizers."
+      }
+    },
+    "future": {
+      "title": "Towards a Sustainable Future",
+      "description": "Adopting composting toilets at a community scale could significantly mitigate water body eutrophication, restore soil fertility, and reduce dependence on agricultural chemicals. To achieve this, education on safe compost management and policies that prioritize ecological sanitation technologies are required. The transition to circular systems not only protects the environment but also strengthens food security and public health."
+    },
+    "images": {
+      "nutrientCycle": "Natural nutrient cycle in ecosystems",
+      "waterPollution": "Water pollution from drainage systems",
+      "compostingProcess": "Composting process in dry toilets"
+    },
+    "citations": {
+      "title": "References",
+      "1": {
+        "text": "Mexican Journal of Agricultural Sciences",
+        "url": "https://www.scielo.org.mx/pdf/remexca/v9nspe20/2007-0934-remexca-9-spe20-4343.pdf"
+      },
+      "2": {
+        "text": "World Health Organization - Guidelines on Sanitation and Health",
+        "url": "https://www.who.int/publications/i/item/9789241514705"
+      },
+      "3": {
+        "text": "Environmental Protection Agency - Nutrient Pollution",
+        "url": "https://www.epa.gov/nutrientpollution"
+      },
+      "4": {
+        "text": "Food and Agriculture Organization - Soil Degradation",
+        "url": "https://www.fao.org/soils-portal/soil-degradation-restoration"
+      },
+      "5": {
+        "text": "Journal of Environmental Management - Impact of Composting Toilets",
+        "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
+      }
     }
   }
 } 

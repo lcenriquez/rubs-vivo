@@ -26,6 +26,9 @@ export const NavbarMobile = () => {
               <MenuIcon />
             </NavigationMenuTrigger>
             <NavigationMenuContent className="flex flex-col p-1">
+              <Link href="/composting-toilet" className={buttonVariants({ variant: "link" })}>
+                {t('compostingToilet')}
+              </Link>
               <Link href="/map" className={buttonVariants({ variant: "link" })}>
                 {t('map')}
               </Link>

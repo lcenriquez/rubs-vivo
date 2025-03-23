@@ -24,6 +24,9 @@ export const NavBar: FC = () => {
             </Link>
             <div className="hidden md:flex justify-between grow">
               <div>
+                <Link href="/composting-toilet" className={buttonVariants({ variant: "link" })}>
+                  {t('compostingToilet')}
+                </Link>
                 <Link href="/map" className={buttonVariants({ variant: "link" })}>
                   {t('map')}
                 </Link>
