@@ -196,7 +196,7 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
                 </FormControl>
                 <SelectContent>
                   <SelectItem value="dry">{t('type.options.dry')}</SelectItem>
-                  <SelectItem value="composting">{t('type.options.composting')}</SelectItem>
+                  {/* <SelectItem value="composting">{t('type.options.composting')}</SelectItem> */}
                 </SelectContent>
               </Select>
               <FormMessage />

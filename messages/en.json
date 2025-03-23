@@ -129,7 +129,7 @@
         "label": "Type",
         "placeholder": "Select a type",
         "options": {
-          "dry": "Dry Toilet",
+          "dry": "Composting Toilet",
           "composting": "Composting Toilet"
         },
         "error": "Type is required"

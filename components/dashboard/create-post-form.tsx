@@ -92,7 +92,8 @@ export function CreatePostForm({ onClose, onSuccess }: CreatePostFormProps) {
         phone: '',
         email: user?.email || '',
         website: ''
-      }
+      },
+      type: 'dry'
     }
   });
 
@@ -193,7 +194,7 @@ export function CreatePostForm({ onClose, onSuccess }: CreatePostFormProps) {
                 </FormControl>
                 <SelectContent>
                   <SelectItem value="dry">{t('type.options.dry')}</SelectItem>
-                  <SelectItem value="composting">{t('type.options.composting')}</SelectItem>
+                  {/* <SelectItem value="composting">{t('type.options.composting')}</SelectItem> */}
                 </SelectContent>
               </Select>
               <FormMessage />
