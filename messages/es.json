@@ -417,9 +417,9 @@
   },
   "theme": {
     "toggle": "Cambiar tema",
-    "light": "Claro",
-    "dark": "Oscuro",
-    "system": "Sistema"
+    "light": "Modo claro",
+    "dark": "Modo oscuro",
+    "system": "Modo del sistema"
   },
   "language": {
     "toggle": "Cambiar idioma",

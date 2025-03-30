@@ -6,7 +6,6 @@ import Link from "next/link";
 import { FC } from "react";
 import { useTranslations } from "next-intl";
 import { useUser } from "reactfire";
-import { ModeToggle } from "../ui/mode-toggle";
 
 export const NavbarUserLinks: FC = () => {
   const t = useTranslations('auth');
@@ -14,7 +13,6 @@ export const NavbarUserLinks: FC = () => {
 
   return (
     <>
-      <ModeToggle />
       {hasEmitted && data ? (
         <>
           <Link href="/app" className={buttonVariants()}>
