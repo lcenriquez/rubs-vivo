@@ -56,7 +56,8 @@ const formSchema = z.object({
       .refine(val => !val || urlRegex.test(val), {
         message: "Please enter a valid URL"
       })
-  }).optional()
+  }).optional(),
+  isLocationPrivate: z.boolean().default(false)
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -95,7 +96,8 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
         phone: '',
         email: user?.email || '',
         website: ''
-      }
+      },
+      isLocationPrivate: post.isLocationPrivate || false
     }
   });
 
@@ -120,7 +122,8 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
       author: {
         displayName: user.displayName,
         email: user.email
-      }
+      },
+      isLocationPrivate: data.isLocationPrivate
     };
     
     // Only add collection service if the checkbox is checked
@@ -252,6 +255,29 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
                 />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="isLocationPrivate"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>
+                  {t('locationPrivacy.label')}
+                </FormLabel>
+                <FormDescription>
+                  {t('locationPrivacy.description')}
+                </FormDescription>
+              </div>
             </FormItem>
           )}
         />

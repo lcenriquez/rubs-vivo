@@ -22,6 +22,17 @@ const DEFAULT_CENTER = {
 
 const DEFAULT_RADIUS = 50; // 50km radius
 
+// Function to add random offset to coordinates
+function fuzzLocation(lat: number, lng: number): { lat: number; lng: number } {
+  const offset = 0.001; // Approx 111 meters
+  const randomLatOffset = (Math.random() - 0.5) * 2 * offset;
+  const randomLngOffset = (Math.random() - 0.5) * 2 * offset;
+  return {
+    lat: lat + randomLatOffset,
+    lng: lng + randomLngOffset,
+  };
+}
+
 export default function MapPage() {
   const t = useTranslations();
   const router = useRouter();
@@ -217,7 +228,9 @@ export default function MapPage() {
               {posts.map((post) => (
                 <MarkerF
                   key={post.id}
-                  position={{ lat: post.location.lat, lng: post.location.lng }}
+                  position={post.isLocationPrivate
+                    ? fuzzLocation(post.location.lat, post.location.lng)
+                    : post.location}
                   onClick={() => setSelectedPost(post)}
                   animation={window.google.maps.Animation.DROP}
                 />
@@ -287,9 +300,9 @@ export default function MapPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start text-sm text-muted-foreground mt-4">
+                    <div className="flex items-center text-sm text-muted-foreground mt-4">
                       <MapPin className="h-4 w-4 mr-1 flex-shrink-0 mt-0.5" />
-                      <span className="line-clamp-2">{post.location.address}</span>
+                      <span className="line-clamp-2">{post.isLocationPrivate ? t('dashboard.form.locationPrivacy.approximate') : post.location.address}</span>
                     </div>
 
                     {post.description && (

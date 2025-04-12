@@ -224,7 +224,12 @@
       },
       "save":"Save",
       "submit": "Create Post",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "locationPrivacy": {
+        "label": "Hide exact location",
+        "description": "Show an approximate location on the map instead of the exact address.",
+        "approximate": "Approximate location shown for privacy."
+      }
     }
   },
   "admin": {

@@ -224,7 +224,12 @@
       },
       "save":"Guardar",
       "submit": "Crear Publicación",
-      "cancel": "Cancelar"
+      "cancel": "Cancelar",
+      "locationPrivacy": {
+        "label": "Ocultar ubicación exacta",
+        "description": "Mostrar una ubicación aproximada en el mapa en lugar de la dirección exacta.",
+        "approximate": "Ubicación aproximada mostrada por privacidad."
+      }
     }
   },
   "admin": {

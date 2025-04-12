@@ -173,9 +173,11 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
                   <Badge>{t(`dashboard.form.type.options.${post.type}`)}</Badge>
                   <Badge>{t(`dashboard.form.urineSystem.options.${post.urineSystem}`)}</Badge>
                 </div>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  {post.location.address}
+                <div className="flex items-center mt-3">
+                  <MapPin className="h-5 w-5 text-muted-foreground mr-3 flex-shrink-0" />
+                  <p className="text-sm text-muted-foreground">
+                    {post.isLocationPrivate ? t('dashboard.form.locationPrivacy.approximate') : post.location.address}
+                  </p>
                 </div>
               </div>
             </div>
@@ -233,7 +235,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
                       </a>
                     </div>
                   )}
-                  {post.contactInfo?.email && (
+                  {post.contactInfo?.email && !post.isLocationPrivate && (
                     <div className="flex items-center text-muted-foreground">
                       <Mail className="h-4 w-4 mr-1" />
                       <a href={`mailto:${post.contactInfo.email}`} className="hover:text-primary">
@@ -241,7 +243,7 @@ export function PostDetailsModal({ post, open, onClose }: PostDetailsModalProps)
                       </a>
                     </div>
                   )}
-                  {post.contactInfo?.website && (
+                  {post.contactInfo?.website && !post.isLocationPrivate && (
                     <div className="flex items-center text-muted-foreground">
                       <Globe className="h-4 w-4 mr-1" />
                       <a 
