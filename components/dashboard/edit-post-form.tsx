@@ -74,7 +74,7 @@ export function EditPostForm({ post, onClose, onSuccess }: EditPostFormProps) {
   const firestore = useFirestore();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<FormData>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: post.title,

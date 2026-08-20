@@ -75,7 +75,7 @@ export function CreatePostForm({ onClose, onSuccess }: CreatePostFormProps) {
   // Generate a real Firebase document ID
   const { id: postId } = useMemo(() => generatePostRef(firestore), [firestore]);
 
-  const form = useForm<FormData>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',

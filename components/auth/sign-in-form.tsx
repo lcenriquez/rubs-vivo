@@ -35,7 +35,7 @@ export const SignInForm: FC<SignInFormProps> = ({ onShowSignUp }) => {
   const [isResetOpen, setIsResetOpen] = useState(false);
   const t = useTranslations('auth');
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
