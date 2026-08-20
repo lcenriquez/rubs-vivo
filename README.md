@@ -17,19 +17,45 @@ Este stack es 🔥 porque los proyectos pueden ser construidos y desplegados gra
 
 1. Asegúrate de que tu proyecto de Firebase tenga la autenticación habilitada.
 2. Obtén tu configuración pública de Firebase y pégala en `components\firebase-providers.tsx`.
-3. `npm i` y `npm run dev`
+3. Copia `.env.example` a `.env.local` y completa las variables que necesites (ver [Variables de Entorno](#variables-de-entorno)).
+4. `npm i` y `npm run dev`
 
 Lo siguiente solo es necesario si deseas utilizar `firebase/admin` (no incluido en este proyecto por defecto).
 
-1. Crea un nuevo archivo en el nivel raíz llamado `.env.local`.
-2. Define una nueva variable allí llamada `FIREBASE_ADMIN_SDK`.
-3. Obtén la clave privada de tu cuenta de servicio de Firebase, conviértela a string y asigna esa string a la variable anterior.
+1. En tu `.env.local`, define una variable llamada `FIREBASE_ADMIN_SDK`.
+2. Obtén la clave privada de tu cuenta de servicio de Firebase, conviértela a string y asigna esa string a la variable anterior.
    > ej.: `FIREBASE_ADMIN_SDK={"type":"service_account","project_id":"sleeptoken",...}`
 
 ### Notas
 
 - Puedes usar `api/test.ts` para convertir tu clave privada a string para que puedas usarla en el entorno.
 - Necesitas definir la misma variable de entorno `FIREBASE_ADMIN_SDK` en Vercel.
+
+## Envío de correos (Resend)
+
+El proyecto incluye un cliente de [Resend](https://resend.com) en `lib/resend.ts` para el envío de correos transaccionales desde el dominio `antilabs.com.mx` (remitente por defecto: `rubs@antilabs.com.mx`).
+
+1. Crea una cuenta en [Resend](https://resend.com) y genera una API key.
+2. **Verifica el dominio `antilabs.com.mx`** en el [panel de dominios de Resend](https://resend.com/domains) agregando los registros DNS (SPF/DKIM) que te indique. Sin esto, los correos enviados desde `rubs@antilabs.com.mx` serán rechazados.
+3. En `.env.local`, define:
+   ```
+   RESEND_API_KEY=re_xxxxxxxxxxxx
+   RESEND_FROM_EMAIL="RUBS Vivo <rubs@antilabs.com.mx>"
+   ```
+4. Define las mismas variables en Vercel (Project Settings → Environment Variables).
+5. Usa el helper `sendEmail()` desde código de servidor (Route Handlers, Server Actions o rutas de `pages/api`) — nunca lo importes desde un componente de cliente, ya que `RESEND_API_KEY` es secreta:
+
+   ```ts
+   import { sendEmail } from "@/lib/resend";
+
+   await sendEmail({
+     to: "destinatario@example.com",
+     subject: "Asunto",
+     html: "<p>Contenido del correo</p>",
+   });
+   ```
+
+   `pages/api/send-test-email.ts` es un endpoint de ejemplo (`POST { "to": "..." }`) para verificar que la configuración funciona.
 
 **Creado por [⬡ Un Granito de Tierra, A.C.](https://ungranitodetierra.org)**
 
@@ -56,14 +82,24 @@ El proyecto está estructurado de la siguiente manera:
 
 ### Tecnologías Clave
 
--   **Next.js:** Framework de React para construir aplicaciones web con renderizado del lado del servidor (SSR) y generación de sitios estáticos (SSG). Utiliza el nuevo App Router.
--   **TypeScript:** Lenguaje de programación que añade tipado estático a JavaScript.
+-   **Next.js 16** (React 19): Framework de React para construir aplicaciones web con renderizado del lado del servidor (SSR) y generación de sitios estáticos (SSG). Utiliza el App Router.
+-   **TypeScript 5.9:** Lenguaje de programación que añade tipado estático a JavaScript.
 -   **shadcn/ui:** Conjunto de componentes de interfaz de usuario reutilizables y personalizables.
--   **Tailwind CSS:** Framework de CSS de utilidad-primera para un desarrollo rápido y flexible.
--   **Firebase:** Plataforma de desarrollo de aplicaciones con servicios de autenticación, base de datos (Firestore) y más.
+-   **Tailwind CSS 3:** Framework de CSS de utilidad-primera para un desarrollo rápido y flexible.
+-   **Firebase 12** (vía `reactfire`): Plataforma de desarrollo de aplicaciones con servicios de autenticación, base de datos (Firestore) y más.
+-   **Resend:** Envío de correos transaccionales (ver [Envío de correos](#envío-de-correos-resend)).
 -   **Vercel:** Plataforma de despliegue en la nube optimizada para Next.js.
 -   **next-intl:** Librería para la internacionalización (i18n).
 -   **nuqs:** Librería para la gestión del estado en la URL (query parameters).
+
+### Actualización de dependencias (2026-08)
+
+El stack se actualizó a las versiones estables más recientes de cada paquete (React 19, Next.js 16, Firebase 12, TypeScript 5.9, radix-ui, etc.) para cerrar vulnerabilidades conocidas en dependencias transitivas. Puntos a tener en cuenta:
+
+-   **Tailwind CSS se mantuvo en la rama 3.x (LTS)** en lugar de saltar a la 4.x: la v4 cambia el formato de configuración (CSS-first) y requiere una migración visual que no se hizo en este cambio. Es un buen siguiente paso si se quiere seguir modernizando el proyecto.
+-   **`reactfire` 4.2.6 no es compatible out-of-the-box con el renderizado en servidor de React 19** (le falta pasar `getServerSnapshot` a `useSyncExternalStore`, algo que React 19 exige en vez de solo advertir). Se aplicó un parche vía [`patch-package`](https://github.com/ds300/patch-package) (`patches/reactfire+4.2.6.patch`), que se reaplica automáticamente en cada `npm install` gracias al script `postinstall`. Si en el futuro `reactfire` publica un fix propio, este parche puede eliminarse.
+-   `middleware.ts` se renombró a `proxy.ts`, que es la convención vigente en Next.js 16 (`middleware` quedó deprecado).
+-   `next lint` fue removido en Next.js 16. El comando `npm run lint` ahora corre `eslint .` directamente con un `eslint.config.mjs` (flat config) basado en `eslint-config-next`. Esto expuso varias reglas nuevas de los lint rules de React Compiler (`react-hooks/set-state-in-effect`, `react-hooks/preserve-manual-memoization`, etc.) sobre patrones ya existentes en el código (por ejemplo, `setState` síncrono dentro de `useEffect` en `post-details-modal.tsx`, `search-location.tsx` y `posts-list.tsx`). No se refactorizó ese código como parte de esta actualización de dependencias; queda como buen siguiente paso.
 
 ### Uso de Firebase
 
@@ -80,9 +116,12 @@ Para utilizar Firebase en este proyecto, sigue estos pasos:
 
 ### Variables de Entorno
 
-Es importante configurar las variables de entorno correctamente para que la aplicación funcione correctamente.
+Es importante configurar las variables de entorno correctamente para que la aplicación funcione correctamente. Usa `.env.example` como plantilla.
 
 -   `FIREBASE_ADMIN_SDK`: Necesaria para usar `firebase/admin`. Debe contener la clave privada de la cuenta de servicio de Firebase en formato string.
+-   `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`: Clave de la API de Google Maps, usada en `/map` para mostrar el mapa de baños registrados.
+-   `RESEND_API_KEY`: API key de [Resend](https://resend.com) para el envío de correos transaccionales.
+-   `RESEND_FROM_EMAIL`: Remitente de los correos (por defecto `RUBS Vivo <rubs@antilabs.com.mx>`). Requiere que el dominio `antilabs.com.mx` esté verificado en Resend.
 
 ### Despliegue en Vercel
 
@@ -93,7 +132,7 @@ Para desplegar este proyecto en Vercel, sigue estos pasos:
 2.  **Conectar tu repositorio de Git:**
     -   Conecta tu repositorio de GitHub, GitLab o Bitbucket a Vercel.
 3.  **Configurar las variables de entorno:**
-    -   Asegúrate de definir la variable de entorno `FIREBASE_ADMIN_SDK` en la configuración del proyecto en Vercel.
+    -   Define en Vercel las variables descritas en [Variables de Entorno](#variables-de-entorno) (`FIREBASE_ADMIN_SDK`, `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, según cuáles use tu despliegue).
 4.  **Desplegar el proyecto:**
     -   Vercel detectará automáticamente que es un proyecto de Next.js y lo desplegará.
 
