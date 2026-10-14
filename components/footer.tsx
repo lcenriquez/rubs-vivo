@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ModeToggle } from './ui/mode-toggle';
 import { LanguageToggle } from './ui/language-toggle';
-import { DropletIcon } from 'lucide-react';
+import { Sprout } from 'lucide-react';
 
 export function Footer() {
   const t = useTranslations('footer');
@@ -17,6 +17,11 @@ export function Footer() {
     { name: t('compostingToilet'), href: `/${locale}/composting-toilet` },
   ];
 
+  const resources = [
+    { name: 'Las Cañadas · Bosque de Niebla', href: 'https://bosquedeniebla.com.mx/que-hacemos/ecotecnologias/sanitarios-secos/' },
+    { name: 'Ecotepec Sanitarios Secos', href: 'https://www.facebook.com/sanitariosecos/' },
+  ];
+
   const social = [
     { name: 'GitHub', href: 'https://github.com/lcenriquez/rubs-vivo' },
     { name: 'Instagram', href: 'https://www.instagram.com/rubsvivo/' },
@@ -24,17 +29,22 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t">
+    <footer className="border-t bg-emerald-50/60 dark:bg-emerald-950/30">
       <div className="container mx-auto px-4 pt-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Logo */}
           <div className="md:col-span-3">
             <div className="flex items-center gap-2">
-              <DropletIcon className="h-6 w-6" />
-              <span className="font-semibold text-lg">RUBS</span>
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600 to-lime-500 text-white shadow-md">
+                <Sprout className="h-5 w-5" />
+              </span>
+              <span className="font-extrabold text-lg tracking-tight">RUBS Vivo</span>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Red de Usuarios de Baño Seco
+            </p>
+            <p className="mt-2 text-sm font-medium text-emerald-700 dark:text-emerald-400">
+              {t('tagline')}
             </p>
           </div>
 
@@ -57,6 +67,21 @@ export function Footer() {
 
           {/* Legal */}
           <div className="md:col-span-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">{t('learnMore')}</h3>
+            <ul className="space-y-3 mb-8">
+              {resources.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">{t('legal')}</h3>
             <ul className="space-y-3">
               <li>

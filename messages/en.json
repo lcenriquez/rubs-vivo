@@ -18,43 +18,289 @@
   },
   "home": {
     "hero": {
-      "title": "We are the Network of Users of Composting Toilets",
-      "description": "We promote respect for water, land, and LIFE in general, closing natural cycles. Let's stop polluting and instead generate compost instead of black waters!",
-      "platformDescription": "This platform is a tool to share how our ecological toilets work and where they are located, as well as sharing experiences.",
+      "badge": "Living Dry Toilet Users Network",
+      "title": "Every time you flush, you break a cycle.",
+      "titleHighlight": "A dry toilet closes it.",
+      "description": "The dry toilet is the only truly sustainable way to manage human waste: it uses not a single drop of water, keeps rivers and aquifers clean, and gives nutrients back to the soil.",
+      "ctaLearn": "Why dry toilets?",
+      "ctaMap": "See the dry toilet map",
+      "platformDescription": "This platform is a tool to share what our ecological toilets look like and where they are located, as well as a way to share experiences.",
       "searchPlaceholder": "Enter your city...",
       "search": "Search",
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "cycle": {
+        "center": "Closed loop",
+        "soil": "Living soil",
+        "food": "Food",
+        "people": "People",
+        "toilet": "Dry toilet",
+        "compost": "Compost"
+      }
     },
-    "sections": {
-      "whatIs": {
-        "title": "What are dry toilets?",
-        "content": "Dry toilets are sanitation systems that do not use water to treat human waste. They rely on natural composting and decomposition methods."
+    "stats": {
+      "items": [
+        {
+          "value": "0",
+          "unit": "liters",
+          "label": "of water used by a dry toilet on every visit"
+        },
+        {
+          "value": "4–12",
+          "unit": "liters",
+          "label": "of drinking water lost with every conventional flush"
+        },
+        {
+          "value": "~21,900",
+          "unit": "liters",
+          "label": "of water a single person can save per year*"
+        },
+        {
+          "value": "100%",
+          "unit": "",
+          "label": "of the nutrients return to the soil as fertilizer"
+        }
+      ],
+      "footnote": "*Estimate: 5 flushes a day of 4 to 12 liters each (figure from Las Cañadas, Bosque de Niebla) over 365 days."
+    },
+    "only": {
+      "eyebrow": "The only sustainable solution",
+      "title": "No other way of managing our waste protects water and soil at the same time",
+      "description": "We compared the most common sanitation options. Only one checks every box the planet needs.",
+      "criteriaTitle": "What does each option deliver?",
+      "criteria": [
+        "Uses no drinking water",
+        "Doesn't pollute rivers, seas or aquifers",
+        "Returns nutrients to the soil",
+        "Works without a sewer",
+        "Needs almost no energy or chemicals"
+      ],
+      "options": [
+        {
+          "name": "Sewer + treatment plant",
+          "marks": [
+            "no",
+            "partial",
+            "no",
+            "no",
+            "no"
+          ]
+        },
+        {
+          "name": "Septic tank",
+          "marks": [
+            "no",
+            "partial",
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "name": "Pit latrine",
+          "marks": [
+            "yes",
+            "no",
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "name": "Dry toilet",
+          "marks": [
+            "yes",
+            "yes",
+            "yes",
+            "yes",
+            "yes"
+          ]
+        }
+      ],
+      "legend": {
+        "yes": "Yes",
+        "partial": "Partly",
+        "no": "No"
       },
-      "howWorks": {
-        "title": "How dry toilets work",
-        "content": "Solid and liquid waste is separated into two different containers. Solids are covered with dry materials to promote composting."
+      "conclusion": "The dry toilet has the greatest positive impact on the environment: it saves water, prevents pollution and regenerates the soil. All at once."
+    },
+    "paths": {
+      "eyebrow": "Two paths",
+      "title": "Where does your waste go?",
+      "drain": {
+        "title": "The sewer path",
+        "steps": [
+          {
+            "title": "Clean water",
+            "text": "We mix drinking water with our waste"
+          },
+          {
+            "title": "Pipes",
+            "text": "Miles of sewers carry it away from the land"
+          },
+          {
+            "title": "Rivers and seas",
+            "text": "Much of it arrives untreated or half-treated"
+          },
+          {
+            "title": "Algae and dead fish",
+            "text": "Excess nutrients suffocate aquatic life"
+          }
+        ],
+        "result": "Polluted water + depleted soil"
       },
-      "benefits": {
-        "title": "Benefits of dry toilets",
-        "list": [
-          "Water conservation",
-          "Pollution reduction",
-          "Waste composting",
-          "Ease of installation in remote areas"
+      "dry": {
+        "title": "The dry toilet path",
+        "steps": [
+          {
+            "title": "Separation",
+            "text": "The bowl separates urine from feces, no water needed"
+          },
+          {
+            "title": "Dry cover",
+            "text": "Soil, ash and sawdust cover and dry the waste"
+          },
+          {
+            "title": "Compost",
+            "text": "Left to rest, waste becomes safe fertilizer"
+          },
+          {
+            "title": "Fertile soil",
+            "text": "Nutrients return to the land and to our food"
+          }
+        ],
+        "result": "Clean water + living soil"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "It's that easy",
+      "title": "How does a dry toilet work?",
+      "description": "The most common model is the double-chamber toilet with a urine-diverting bowl. It's a permanent structure that can be built inside or outside the house, with ventilation and insect protection.",
+      "steps": [
+        {
+          "title": "Prepare the chamber",
+          "text": "Before first use, cover the bottom with a layer of about 4 cm of prepared soil."
+        },
+        {
+          "title": "Separate",
+          "text": "The diverting bowl sends urine to a container and feces to the chamber. No bad smells."
+        },
+        {
+          "title": "Cover",
+          "text": "After each use, add a handful of dry cover mix. No water at all."
+        },
+        {
+          "title": "Alternate and harvest",
+          "text": "When one chamber is full, close it and use the other. Over time, the first turns into fertile compost."
+        }
+      ],
+      "diagram": {
+        "seat": "Diverting bowl",
+        "vent": "Ventilation",
+        "chamberActive": "Chamber in use",
+        "chamberResting": "Resting chamber",
+        "urine": "Urine",
+        "compost": "Compost"
+      },
+      "mix": {
+        "title": "Dry cover mix",
+        "items": [
+          "Fine, dry, sifted soil",
+          "Ash or lime",
+          "Untreated sawdust",
+          "Charcoal powder",
+          "Dry leaves"
         ]
       },
-      "maintenance": {
-        "title": "Maintenance of dry toilets",
-        "content": "It is important to follow specific guidelines for the safe and proper disposal of waste."
+      "urine": {
+        "title": "What about urine?",
+        "text": "It's an excellent natural fertilizer for fruit trees and crops. It can also be piped to a small soak pit that returns its nutrients to the soil."
       },
-      "differences": {
-        "title": "Differences between dry toilets and traditional toilets",
-        "content": "Dry toilets eliminate the need for water to transport waste, which brings environmental advantages."
-      },
-      "cta": {
-        "title": "Join our community",
-        "description": "Become part of the network and share your experiences with other dry toilet users."
-      }
+      "source": "Information based on Las Cañadas (Bosque de Niebla) and Ecotepec Sanitarios Secos."
+    },
+    "water": {
+      "title": "What one person stops flushing away in a year",
+      "unit": "1 tank = 1,100 liters",
+      "caption": "Up to 20 water tanks of drinking water per person, per year. For a family of 4, that's almost 80 tanks."
+    },
+    "myths": {
+      "eyebrow": "Myths and facts",
+      "title": "What (almost) everyone asks",
+      "mythLabel": "Myth",
+      "factLabel": "Fact",
+      "items": [
+        {
+          "myth": "It smells bad",
+          "fact": "Separating urine from feces and covering with dry material means no bad smell. A well-used dry toilet smells like earth."
+        },
+        {
+          "myth": "It's only for the countryside",
+          "fact": "Dry toilets aren't just for rural areas: they work in urban homes, schools, community centers and productive projects."
+        },
+        {
+          "myth": "It's unhygienic",
+          "fact": "Drying, plus materials like lime or ash, eliminates pathogens more efficiently than flushing water."
+        },
+        {
+          "myth": "It's expensive and complicated",
+          "fact": "You can build it yourself with local materials, and it needs no water, sewer or energy bills. Maintenance is simple."
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "It's already happening",
+      "title": "Inspiring experiences",
+      "items": [
+        {
+          "name": "Las Cañadas · Bosque de Niebla",
+          "place": "Huatusco, Veracruz",
+          "highlight": "Since 1998",
+          "text": "They use composting dry toilets in all their facilities and teach how to build them through courses and manuals.",
+          "url": "https://bosquedeniebla.com.mx/que-hacemos/ecotecnologias/sanitarios-secos/",
+          "linkLabel": "Learn more"
+        },
+        {
+          "name": "Elotepec community",
+          "place": "Huatusco, Veracruz",
+          "highlight": "Goal: 100 dry toilets",
+          "text": "In 2023, 32 double-chamber dry toilets were built, on the way to a model community with no sewer at all!",
+          "url": "https://bosquedeniebla.com.mx/portfolio-items/sanitarios-secos-en-elotepec/",
+          "linkLabel": "See the project"
+        },
+        {
+          "name": "Ecotepec Sanitarios Secos",
+          "place": "Cuernavaca, Morelos",
+          "highlight": "Ships across Mexico",
+          "text": "Single or double-chamber ecological toilets, with urine diversion and a dry cover mix of soil, charcoal and sawdust.",
+          "url": "https://www.facebook.com/sanitariosecos/",
+          "linkLabel": "Visit their page"
+        }
+      ]
+    },
+    "community": {
+      "title": "Join the network and put your dry toilet on the map",
+      "description": "Share what your ecological toilet looks like, discover others near you and learn from the whole community's experience.",
+      "ctaMap": "Explore the map",
+      "ctaSignUp": "Sign up now!"
+    },
+    "resources": {
+      "title": "Want to build your own?",
+      "items": [
+        {
+          "title": "Online dry toilet course",
+          "description": "Las Cañadas · Bosque de Niebla",
+          "url": "https://bosquedeniebla.com.mx/cursos-y-aprendices/cursos-en-linea/"
+        },
+        {
+          "title": "Manual and diverting bowl",
+          "description": "Las Cañadas store",
+          "url": "https://tienda.bosquedeniebla.com.mx/"
+        },
+        {
+          "title": "Ready-to-install dry toilets",
+          "description": "Ecotepec Sanitarios Secos",
+          "url": "https://www.facebook.com/sanitariosecos/"
+        }
+      ]
     }
   },
   "auth": {
@@ -222,7 +468,7 @@
           "placeholder": "Enter website URL"
         }
       },
-      "save":"Save",
+      "save": "Save",
       "submit": "Create Post",
       "cancel": "Cancel",
       "locationPrivacy": {
@@ -346,6 +592,30 @@
         "text": "Journal of Environmental Management - Impact of Composting Toilets",
         "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
       }
+    },
+    "eyebrow": "Why dry toilets?",
+    "subtitle": "Every flush breaks the cycle of life. The dry toilet is the only way to close it.",
+    "problemLabel": "The problem",
+    "solutionLabel": "The solution",
+    "highlights": [
+      {
+        "value": "53,190 L",
+        "label": "of water per year kept clean by a single hotel in Oaxaca"
+      },
+      {
+        "value": "262,800 L",
+        "label": "of water kept clean by one person over 24 years"
+      },
+      {
+        "value": "+30%",
+        "label": "productivity in soils enriched with compost"
+      }
+    ],
+    "onlyBanner": {
+      "title": "The only sustainable solution",
+      "text": "No other sanitation option saves water, prevents pollution and regenerates the soil at the same time. The dry toilet is the alternative with the greatest positive impact on the environment.",
+      "ctaCompare": "See the comparison",
+      "ctaMap": "Find dry toilets nearby"
     }
   },
   "privacyNotice": {
@@ -418,7 +688,9 @@
     "settings": "Settings",
     "theme": "Theme Mode",
     "language": "Language",
-    "poweredBy": "Powered by"
+    "poweredBy": "Powered by",
+    "tagline": "The dry toilet: the only sustainable solution for our waste.",
+    "learnMore": "Learn more"
   },
   "theme": {
     "toggle": "Toggle theme",
@@ -431,4 +703,4 @@
     "english": "English",
     "spanish": "Spanish"
   }
-} 
+}

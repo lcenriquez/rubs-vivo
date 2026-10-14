@@ -18,43 +18,289 @@
   },
   "home": {
     "hero": {
-      "title": "Somos la Red de Usuarios del Baño Seco Vivo",
-      "description": "Difundimos el respeto al agua, la tierra y a la vida, cerrando los ciclos naturales",
+      "badge": "Red de Usuarios del Baño Seco Vivo",
+      "title": "Cada vez que jalas la cadena, rompes un ciclo.",
+      "titleHighlight": "El baño seco lo cierra.",
+      "description": "El baño seco es la única solución verdaderamente sustentable para manejar nuestros residuos: no usa ni una gota de agua, no contamina ríos ni acuíferos y devuelve los nutrientes a la tierra.",
+      "ctaLearn": "¿Por qué el baño seco?",
+      "ctaMap": "Ver el mapa de baños secos",
       "platformDescription": "Esta plataforma es una herramienta para compartir cómo son nuestros sanitarios ecológicos y dónde están ubicados, además de ser un medio para compartir experiencias.",
       "searchPlaceholder": "Ingresa tu ciudad...",
       "search": "Buscar",
-      "loading": "Cargando..."
+      "loading": "Cargando...",
+      "cycle": {
+        "center": "Ciclo cerrado",
+        "soil": "Suelo vivo",
+        "food": "Alimentos",
+        "people": "Personas",
+        "toilet": "Baño seco",
+        "compost": "Composta"
+      }
     },
-    "sections": {
-      "whatIs": {
-        "title": "¿Qué son los baños secos?",
-        "content": "Los baños secos son sistemas de saneamiento que no utilizan agua para tratar los desechos humanos. Se basan en métodos naturales de compostaje y descomposición."
+    "stats": {
+      "items": [
+        {
+          "value": "0",
+          "unit": "litros",
+          "label": "de agua usa un baño seco en cada visita"
+        },
+        {
+          "value": "4–12",
+          "unit": "litros",
+          "label": "de agua potable se van en cada descarga de un baño convencional"
+        },
+        {
+          "value": "~21,900",
+          "unit": "litros",
+          "label": "de agua al año puede ahorrar una sola persona*"
+        },
+        {
+          "value": "100%",
+          "unit": "",
+          "label": "de los nutrientes regresan al suelo como abono"
+        }
+      ],
+      "footnote": "*Estimación: 5 descargas diarias de 4 a 12 litros cada una (dato de Las Cañadas, Bosque de Niebla) durante 365 días."
+    },
+    "only": {
+      "eyebrow": "La única solución sustentable",
+      "title": "No existe otra forma de manejar nuestros residuos que cuide el agua y la tierra al mismo tiempo",
+      "description": "Comparamos las opciones más comunes de saneamiento. Solo una cumple con todo lo que el planeta necesita.",
+      "criteriaTitle": "¿Qué cumple cada opción?",
+      "criteria": [
+        "No gasta agua potable",
+        "No contamina ríos, mares ni acuíferos",
+        "Devuelve los nutrientes al suelo",
+        "Funciona sin drenaje",
+        "Casi no requiere energía ni químicos"
+      ],
+      "options": [
+        {
+          "name": "Drenaje + planta de tratamiento",
+          "marks": [
+            "no",
+            "partial",
+            "no",
+            "no",
+            "no"
+          ]
+        },
+        {
+          "name": "Fosa séptica",
+          "marks": [
+            "no",
+            "partial",
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "name": "Letrina de hoyo",
+          "marks": [
+            "yes",
+            "no",
+            "no",
+            "yes",
+            "yes"
+          ]
+        },
+        {
+          "name": "Baño seco",
+          "marks": [
+            "yes",
+            "yes",
+            "yes",
+            "yes",
+            "yes"
+          ]
+        }
+      ],
+      "legend": {
+        "yes": "Sí",
+        "partial": "En parte",
+        "no": "No"
       },
-      "howWorks": {
-        "title": "Funcionamiento de los baños secos",
-        "content": "Los desechos sólidos y líquidos se separan en dos contenedores diferentes. Los sólidos se cubren con materiales secos para promover el compostaje."
+      "conclusion": "El baño seco es la opción de mayor impacto positivo para el medio ambiente: ahorra agua, evita la contaminación y regenera el suelo. Todo a la vez."
+    },
+    "paths": {
+      "eyebrow": "Dos caminos",
+      "title": "¿A dónde van tus residuos?",
+      "drain": {
+        "title": "El camino del drenaje",
+        "steps": [
+          {
+            "title": "Agua limpia",
+            "text": "Mezclamos agua potable con nuestros residuos"
+          },
+          {
+            "title": "Tubería",
+            "text": "Kilómetros de drenaje los alejan de la tierra"
+          },
+          {
+            "title": "Ríos y mares",
+            "text": "Mucha agua llega sin tratar o tratada a medias"
+          },
+          {
+            "title": "Algas y peces muertos",
+            "text": "El exceso de nutrientes asfixia la vida acuática"
+          }
+        ],
+        "result": "Agua contaminada + suelo empobrecido"
       },
-      "benefits": {
-        "title": "Beneficios de los baños secos",
-        "list": [
-          "Conservación del agua",
-          "Reducción de la contaminación",
-          "Compostaje de desechos",
-          "Facilidad de instalación en zonas remotas"
+      "dry": {
+        "title": "El camino del baño seco",
+        "steps": [
+          {
+            "title": "Separación",
+            "text": "La taza separa la orina de las heces, sin agua"
+          },
+          {
+            "title": "Material secante",
+            "text": "Tierra, ceniza y aserrín cubren y secan"
+          },
+          {
+            "title": "Composta",
+            "text": "En reposo, los residuos se vuelven abono seguro"
+          },
+          {
+            "title": "Suelo fértil",
+            "text": "Los nutrientes regresan a la tierra y a los alimentos"
+          }
+        ],
+        "result": "Agua limpia + suelo vivo"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Así de fácil",
+      "title": "¿Cómo funciona un baño seco?",
+      "description": "El modelo más común es el sanitario de doble cámara con taza separadora. Es una construcción permanente que se puede hacer dentro o fuera de casa, con ventilación y protección contra insectos.",
+      "steps": [
+        {
+          "title": "Prepara la cámara",
+          "text": "Antes de estrenarla, pon en el fondo una capa de unos 4 cm de tierra preparada."
+        },
+        {
+          "title": "Separa",
+          "text": "La taza separadora manda la orina a un recipiente y las heces a la cámara. Así no hay malos olores."
+        },
+        {
+          "title": "Cubre",
+          "text": "Después de cada uso, echa un puñito de mezcla secante. Nada de agua."
+        },
+        {
+          "title": "Alterna y cosecha",
+          "text": "Cuando una cámara se llena, se tapa y se usa la otra. Con el tiempo, la primera se convierte en composta fértil."
+        }
+      ],
+      "diagram": {
+        "seat": "Taza separadora",
+        "vent": "Ventilación",
+        "chamberActive": "Cámara en uso",
+        "chamberResting": "Cámara en reposo",
+        "urine": "Orina",
+        "compost": "Composta"
+      },
+      "mix": {
+        "title": "Mezcla secante",
+        "items": [
+          "Tierra fina y seca (cernida)",
+          "Ceniza o cal",
+          "Aserrín sin químicos",
+          "Polvo de carbón",
+          "Hojas secas"
         ]
       },
-      "maintenance": {
-        "title": "Mantenimiento de los baños secos",
-        "content": "Es importante seguir pautas específicas para la disposición segura y adecuada de los residuos."
+      "urine": {
+        "title": "¿Y la orina?",
+        "text": "Es un excelente fertilizante natural para frutales y cultivos. También puede conducirse a un pequeño pozo de absorción que devuelve sus nutrientes al suelo."
       },
-      "differences": {
-        "title": "Diferencias entre baños secos y baños tradicionales",
-        "content": "Los baños secos eliminan la necesidad de agua para transportar desechos, lo que implica ventajas ambientales."
-      },
-      "cta": {
-        "title": "Únete a nuestra comunidad",
-        "description": "Forma parte de la red y comparte tus experiencias con otros usuarios de baños secos."
-      }
+      "source": "Información basada en Las Cañadas (Bosque de Niebla) y Ecotepec Sanitarios Secos."
+    },
+    "water": {
+      "title": "Lo que una persona deja de tirar por el excusado en un año",
+      "unit": "1 tinaco = 1,100 litros",
+      "caption": "Hasta 20 tinacos de agua potable al año, por persona. Para una familia de 4, son casi 80 tinacos."
+    },
+    "myths": {
+      "eyebrow": "Mitos y realidades",
+      "title": "Lo que (casi) todos preguntan",
+      "mythLabel": "Mito",
+      "factLabel": "Realidad",
+      "items": [
+        {
+          "myth": "Huele mal",
+          "fact": "Al separar orina y heces y cubrir con material secante, no hay mal olor. Un baño seco bien usado huele a tierra."
+        },
+        {
+          "myth": "Solo sirve en el campo",
+          "fact": "Los baños secos no son exclusivos del medio rural: funcionan en casas urbanas, escuelas, centros comunitarios y proyectos productivos."
+        },
+        {
+          "myth": "Es antihigiénico",
+          "fact": "La desecación y materiales como la cal o la ceniza eliminan los patógenos de forma más eficiente que el agua de arrastre."
+        },
+        {
+          "myth": "Es caro y complicado",
+          "fact": "Se puede autoconstruir con materiales locales, y no paga agua, drenaje ni energía. El mantenimiento es sencillo."
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Ya está pasando",
+      "title": "Experiencias que inspiran",
+      "items": [
+        {
+          "name": "Las Cañadas · Bosque de Niebla",
+          "place": "Huatusco, Veracruz",
+          "highlight": "Desde 1998",
+          "text": "Usan el sanitario seco compostero en todas sus instalaciones, y enseñan a construirlo con cursos y manuales.",
+          "url": "https://bosquedeniebla.com.mx/que-hacemos/ecotecnologias/sanitarios-secos/",
+          "linkLabel": "Conocer más"
+        },
+        {
+          "name": "Comunidad de Elotepec",
+          "place": "Huatusco, Veracruz",
+          "highlight": "Meta: 100 baños secos",
+          "text": "En 2023 se construyeron 32 sanitarios secos de doble cámara, rumbo a una comunidad modelo ¡sin drenaje!",
+          "url": "https://bosquedeniebla.com.mx/portfolio-items/sanitarios-secos-en-elotepec/",
+          "linkLabel": "Ver el proyecto"
+        },
+        {
+          "name": "Ecotepec Sanitarios Secos",
+          "place": "Cuernavaca, Morelos",
+          "highlight": "Envíos a todo México",
+          "text": "Sanitarios ecológicos de una o dos cámaras, con separación de orina y mezcla secante de tierra, carbón y aserrín.",
+          "url": "https://www.facebook.com/sanitariosecos/",
+          "linkLabel": "Visitar su página"
+        }
+      ]
+    },
+    "community": {
+      "title": "Únete a la red y pon tu baño seco en el mapa",
+      "description": "Comparte cómo es tu sanitario ecológico, descubre otros cerca de ti y aprende de la experiencia de toda la comunidad.",
+      "ctaMap": "Explorar el mapa",
+      "ctaSignUp": "¡Regístrate ahora!"
+    },
+    "resources": {
+      "title": "¿Quieres construir el tuyo?",
+      "items": [
+        {
+          "title": "Curso en línea de sanitarios secos",
+          "description": "Las Cañadas · Bosque de Niebla",
+          "url": "https://bosquedeniebla.com.mx/cursos-y-aprendices/cursos-en-linea/"
+        },
+        {
+          "title": "Manual y taza separadora",
+          "description": "Tienda Las Cañadas",
+          "url": "https://tienda.bosquedeniebla.com.mx/"
+        },
+        {
+          "title": "Sanitarios secos listos para instalar",
+          "description": "Ecotepec Sanitarios Secos",
+          "url": "https://www.facebook.com/sanitariosecos/"
+        }
+      ]
     }
   },
   "auth": {
@@ -222,7 +468,7 @@
           "placeholder": "Ingresa la URL del sitio web"
         }
       },
-      "save":"Guardar",
+      "save": "Guardar",
       "submit": "Crear Publicación",
       "cancel": "Cancelar",
       "locationPrivacy": {
@@ -346,6 +592,30 @@
         "text": "Revista de Gestión Ambiental - Impacto de los Baños Secos",
         "url": "https://doi.org/10.1016/j.jenvman.2019.109466"
       }
+    },
+    "eyebrow": "¿Por qué el baño seco?",
+    "subtitle": "Cada descarga de agua rompe el ciclo de la vida. El baño seco es la única forma de cerrarlo.",
+    "problemLabel": "El problema",
+    "solutionLabel": "La solución",
+    "highlights": [
+      {
+        "value": "53,190 L",
+        "label": "de agua al año dejó de contaminar un solo hotel en Oaxaca"
+      },
+      {
+        "value": "262,800 L",
+        "label": "evitó contaminar una sola persona en 24 años"
+      },
+      {
+        "value": "+30%",
+        "label": "de productividad en suelos enriquecidos con composta"
+      }
+    ],
+    "onlyBanner": {
+      "title": "La única solución sustentable",
+      "text": "Ninguna otra opción de saneamiento ahorra agua, evita la contaminación y regenera el suelo al mismo tiempo. El baño seco es la alternativa con mayor impacto positivo para el medio ambiente.",
+      "ctaCompare": "Ver la comparación",
+      "ctaMap": "Encuentra baños secos cerca"
     }
   },
   "privacyNotice": {
@@ -418,7 +688,9 @@
     "settings": "Configuración",
     "theme": "Modo de Tema",
     "language": "Idioma",
-    "poweredBy": "Patrocinado por"
+    "poweredBy": "Patrocinado por",
+    "tagline": "El baño seco: la única solución sustentable para nuestros residuos.",
+    "learnMore": "Aprende más"
   },
   "theme": {
     "toggle": "Cambiar tema",
@@ -431,4 +703,4 @@
     "english": "Inglés",
     "spanish": "Español"
   }
-} 
+}
